@@ -80,12 +80,13 @@ void
 EyeModule::Tick()
 {
     
+    
     // Copy every iteration if parameter changed through the binding
-    if (i>15){i=0;}
-    if (j>15){j=0;}
+    if (i>11){i=0;}
+    if (j>11){j=0;}
     if(output[0][i]<1){
-        output[0][i] = prev_output[0][i] + 0.05;
-        output[0][j] = prev_output[0][j] - 0.05;
+        output[0][i] = prev_output[0][i] + 0.25;
+        output[0][j] = prev_output[0][j] - 0.25;
             prev_output[0][i] = output[0][i];
         }else{
             i++;

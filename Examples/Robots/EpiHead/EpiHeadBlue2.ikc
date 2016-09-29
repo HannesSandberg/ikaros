@@ -150,20 +150,20 @@
     />
 
 
-	   	<connection sourcemodule = "loader" source = "OUTPUT" targetmodule = "FadeCandy" target = "LEFT_EYE_RED" />
-    	<connection sourcemodule = "loader" source = "OUTPUT" targetmodule = "FadeCandy" target = "LEFT_EYE_GREEN" />
+	   	<connection sourcemodule = "R" source = "OUTPUT" targetmodule = "FadeCandy" target = "LEFT_EYE_RED" />
+    	<connection sourcemodule = "G" source = "OUTPUT" targetmodule = "FadeCandy" target = "LEFT_EYE_GREEN" />
     	<connection sourcemodule = "loader" source = "OUTPUT" targetmodule = "FadeCandy" target = "LEFT_EYE_BLUE" />
 	   	<connection sourcemodule = "R" source = "OUTPUT" targetmodule = "FadeCandy" target = "RIGHT_EYE_RED" />
-    	<connection sourcemodule = "loader" source = "OUTPUT" targetmodule = "FadeCandy" target = "RIGHT_EYE_GREEN" />
-    	<connection sourcemodule = "B" source = "OUTPUT" targetmodule = "FadeCandy" target = "RIGHT_EYE_BLUE" />
+    	<connection sourcemodule = "G" source = "OUTPUT" targetmodule = "FadeCandy" target = "RIGHT_EYE_GREEN" />
+    	<connection sourcemodule = "loader" source = "OUTPUT" targetmodule = "FadeCandy" target = "RIGHT_EYE_BLUE" />
     
     	<connection sourcemodule = "R" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_TOP_RED" />
     	<connection sourcemodule = "G" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_TOP_GREEN" />
-    	<connection sourcemodule = "B" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_TOP_BLUE" />
+    	<connection sourcemodule = "loader" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_TOP_BLUE" />
             
     	<connection sourcemodule = "R" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_BOTTOM_RED" />
     	<connection sourcemodule = "G" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_BOTTOM_GREEN" />
-   		<connection sourcemodule = "B" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_BOTTOM_BLUE" />
+   		<connection sourcemodule = "loader" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_BOTTOM_BLUE" />
 
 
 

@@ -64,6 +64,7 @@ EyeModule::SetSizes() // Infer output size from data if none is given
 void
 EyeModule::Init()
 {
+    
     output          =	GetOutputMatrix("OUTPUT");
     outputsize_x	=	GetOutputSizeX("OUTPUT");
     outputsize_y	=	GetOutputSizeY("OUTPUT");

@@ -1,34 +1,49 @@
 <?xml version="1.0"?>
 
-<group name="MyModule" description="minimal example module">
 
-	<description type="text">
-		Module that can be used as a start for a new module.
-		Simply change all occurrences of "MyModule" to the name of your new module in
-		MyModule.cc, MyModule.h and MyModule.ikc (this file), rename the files, and fill
-		in the new code and documentation. This module is located in the
-		UserModules directory.
-	</description>
+<group name="PupilModule" description="minimal example module">
+    
+    <description type="text">
+        Module that can be used as a start for a new module.
+        Simply change all occurrences of "PupilModule" to the name of your new module in
+        PupilModule.cc, PupilModule.h and PupilModule.ikc (this file), rename the files, and fill
+        in the new code and documentation. This module is located in the
+        UserModules directory.
+    </description>
+    
+    <example description="A simple example">
+        <module
+        class="PupilModule"
+        name="PupilModule"
+        outputsize = "4"
+        data = "1 2 3 4"
+        />
+    </example>
+    <example description="Matrix example; WARNING: this does not currently work. ';' are necessary to ,ark end of row.">
+        <module
+        class="PupilModule"
+        name="MatrixPupilModule"
+        outputsize_x = "3"
+        outputsize_y = "3"
+        data = "1 2 3 2 3 4 3 4 5"
+        />
+    </example>
+    
+    <example description="Autosize example">
+        <module
+        class="PupilModule"
+        name="Matrix3x4"
+        data = "1 2 3; 2 3 4; 3 4 5; 4 5 6"
+        />
+    </example>
+    
+    
+    <output name="OUTPUT" description="The output" size_param="outputsize" size_param_x="outputsize_x" size_param_y="outputsize_y" />
+    
+    
+    <module class="PupilModule" />
 
-	<example description="A simple example">
-		<module
-			class="MyModule"
-			name="MyModule"
-			parameter1 = "3.14"
-			parameter2 = "42"
-		/>
-	</example>
-
-	<parameter name="parameter1" type="float" default="7.0" description="The first parameter" />
-	<parameter name="parameter2" type="int" default="2" description="The second parameter" />
-
-	<input name="INPUT1" description="The first input" />
-	<input name="INPUT2" description="The second input" />
-
-	<output name="OUTPUT1" description="The first output" size="10" />
-	<output name="OUTPUT2" description="The second output" size_set="INPUT2" />
-
-	<module class="MyModule" />
+	<module class="PupilModule" />
 
 	<author>
 		<name>Christian Balkenius</name>
@@ -38,9 +53,9 @@
 	</author>
 
    <files>
-   		<file>MyModule.h</file>
-   		<file>MyModule.cc</file>
-   		<file>MyModule.ikc</file>
+   		<file>PupilModule.h</file>
+   		<file>PupilModule.cc</file>
+   		<file>PupilModule.ikc</file>
    </files>
 
 </group>

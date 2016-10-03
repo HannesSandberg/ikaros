@@ -1,5 +1,5 @@
 //
-//	MyModule.h		This file is a part of the IKAROS project
+//	PupilModule.h		This file is a part of the IKAROS project
 //
 //    Copyright (C) 2012 <Author Name>
 //
@@ -20,48 +20,32 @@
 //    See http://www.ikaros-project.org/ for more information.
 //
 
-#ifndef MyModule_
-#define MyModule_
+#ifndef PupilModule_
+#define PupilModule_
 
 #include "IKAROS.h"
 
-class MyModule: public Module
+
+class PupilModule: public Module
 {
 public:
-    static Module * Create(Parameter * p) { return new MyModule(p); }
-
-    MyModule(Parameter * p) : Module(p) {}
-    virtual ~MyModule();
-
-    void 		Init();
-    void 		Tick();
-
-    // pointers to inputs and outputs
-    // and integers to represent their sizes
-
-    float *     input_array;
-    int         input_array_size;
-
-    float **    input_matrix;
-    int         input_matrix_size_x;
-    int         input_matrix_size_y;
-
-    float *     output_array;
-    int         output_array_size;
-
-    float **    output_matrix;
-    int         output_matrix_size_x;
-    int         output_matrix_size_y;
-
-    // internal data storage
-
-    float *     internal_array;
-    float **    internal_matrix;
-
-    // parameter values
-
-    float       float_parameter;
-    int         int_parameter;
+    static Module * Create(Parameter * p) { return new PupilModule(p); }
+    
+    float **	data;
+    float **	output;
+    float **	prev_output;
+    int         outputsize_x;
+    int         outputsize_y;
+    int         i;
+    int         j;
+    
+    PupilModule(Parameter * p) : Module(p) {}
+    virtual	~PupilModule() {}
+    
+    void            SetSizes();
+    
+    void			Init();
+    void			Tick();
 };
 
 #endif

@@ -128,8 +128,9 @@
 
     <module
         class="EyeModule"
-        name = "loader"
+        name = "EyeModule"
         data = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+        colorData = "1"
     />
     
     <module
@@ -150,20 +151,20 @@
     />
 
 
-	   	<connection sourcemodule = "R" source = "OUTPUT" targetmodule = "FadeCandy" target = "LEFT_EYE_RED" />
-    	<connection sourcemodule = "G" source = "OUTPUT" targetmodule = "FadeCandy" target = "LEFT_EYE_GREEN" />
-    	<connection sourcemodule = "loader" source = "OUTPUT" targetmodule = "FadeCandy" target = "LEFT_EYE_BLUE" />
-	   	<connection sourcemodule = "R" source = "OUTPUT" targetmodule = "FadeCandy" target = "RIGHT_EYE_RED" />
-    	<connection sourcemodule = "G" source = "OUTPUT" targetmodule = "FadeCandy" target = "RIGHT_EYE_GREEN" />
-    	<connection sourcemodule = "loader" source = "OUTPUT" targetmodule = "FadeCandy" target = "RIGHT_EYE_BLUE" />
+	   	<connection sourcemodule = "EyeModule" source = "OUTPUTRED" targetmodule = "FadeCandy" target = "LEFT_EYE_RED" />
+    	<connection sourcemodule = "EyeModule" source = "OUTPUTGREEN" targetmodule = "FadeCandy" target = "LEFT_EYE_GREEN" />
+    	<connection sourcemodule = "EyeModule" source = "OUTPUTBLUE" targetmodule = "FadeCandy" target = "LEFT_EYE_BLUE" />
+	   	<connection sourcemodule = "EyeModule" source = "OUTPUTRED" targetmodule = "FadeCandy" target = "RIGHT_EYE_RED" />
+    	<connection sourcemodule = "EyeModule" source = "OUTPUTGREEN" targetmodule = "FadeCandy" target = "RIGHT_EYE_GREEN" />
+    	<connection sourcemodule = "EyeModule" source = "OUTPUTBLUE" targetmodule = "FadeCandy" target = "RIGHT_EYE_BLUE" />
     
-    	<connection sourcemodule = "R" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_TOP_RED" />
-    	<connection sourcemodule = "G" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_TOP_GREEN" />
-    	<connection sourcemodule = "loader" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_TOP_BLUE" />
+    	<connection sourcemodule = "EyeModule" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_TOP_RED" />
+    	<connection sourcemodule = "EyeModule" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_TOP_GREEN" />
+    	<connection sourcemodule = "EyeModule" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_TOP_BLUE" />
             
-    	<connection sourcemodule = "R" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_BOTTOM_RED" />
-    	<connection sourcemodule = "G" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_BOTTOM_GREEN" />
-   		<connection sourcemodule = "loader" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_BOTTOM_BLUE" />
+    	<connection sourcemodule = "EyeModule" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_BOTTOM_RED" />
+    	<connection sourcemodule = "EyeModule" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_BOTTOM_GREEN" />
+   		<connection sourcemodule = "EyeModule" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_BOTTOM_BLUE" />
 
 
 

@@ -32,6 +32,9 @@ public:
     
     float **	data;
     float **	output;
+    float **	outputRED;
+    float **	outputGREEN;
+    float **	outputBLUE;
     float **	prev_output;
     int         outputsize_x;
     int         outputsize_y;

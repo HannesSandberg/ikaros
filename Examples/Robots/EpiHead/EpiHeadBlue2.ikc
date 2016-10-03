@@ -5,7 +5,7 @@
 
     <module class="Constant" name="NeckEyeConstant" data = "180 180 180 180" />
         <connection sourcemodule = "NeckEyeConstant" source = "OUTPUT" targetmodule = "GuardNeckEyes" target = "INPUT" delay = "0" />
-    <module class="Constant" name="PupilConstant" data = "190 190" />
+    <module class="PupilModule" name="PupilConstant" data="190 190" />
         <connection sourcemodule = "PupilConstant" source = "OUTPUT" targetmodule = "GuardPupil" target = "INPUT" delay = "0" />
 
 

@@ -1,5 +1,5 @@
 //
-//	EyeModule.h		This file is a part of the IKAROS project
+//	BlinkModule.h		This file is a part of the IKAROS project
 //
 //    Copyright (C) 2012 <Author Name>
 //
@@ -20,15 +20,15 @@
 //    See http://www.ikaros-project.org/ for more information.
 //
 
-#ifndef EyeModule_
-#define EyeModule_
+#ifndef BlinkModule_
+#define BlinkModule_
 
 #include "IKAROS.h"
 
-class EyeModule: public Module
+class BlinkModule: public Module
 {
 public:
-    static Module * Create(Parameter * p) { return new EyeModule(p); }
+    static Module * Create(Parameter * p) { return new BlinkModule(p); }
     
     float **	data;
     float **	output;
@@ -38,8 +38,8 @@ public:
     int         i;
     int         j;
     
-    EyeModule(Parameter * p) : Module(p) {}
-    virtual	~EyeModule() {}
+    BlinkModule(Parameter * p) : Module(p) {}
+    virtual	~BlinkModule() {}
     
     void            SetSizes();
     

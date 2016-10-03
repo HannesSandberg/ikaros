@@ -13,7 +13,7 @@
         />
 
         <module
-            class="EyeModule"
+            class="BlinkModule"
             name = "B"
             data = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
         />

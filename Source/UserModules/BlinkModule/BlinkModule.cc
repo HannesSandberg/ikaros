@@ -1,5 +1,5 @@
 //
-//	EyeModule.cc		This file is a part of the IKAROS project
+//	BlinkModule.cc		This file is a part of the IKAROS project
 //
 //    Copyright (C) 2012 <Author Name>
 //
@@ -24,7 +24,7 @@
 //  If you prefer to start with a clean example, use he module MinimalModule instead.
 //
 
-#include "EyeModule.h"
+#include "BlinkModule.h"
 
 // use the ikaros namespace to access the math library
 // this is preferred to using <cmath>
@@ -33,7 +33,7 @@ using namespace ikaros;
 
 
 void
-EyeModule::SetSizes() // Infer output size from data if none is given
+BlinkModule::SetSizes() // Infer output size from data if none is given
 {
     if(GetValue("outputsize"))
     {
@@ -62,7 +62,7 @@ EyeModule::SetSizes() // Infer output size from data if none is given
 
 
 void
-EyeModule::Init()
+BlinkModule::Init()
 {
     output          =	GetOutputMatrix("OUTPUT");
     outputsize_x	=	GetOutputSizeX("OUTPUT");
@@ -77,7 +77,7 @@ EyeModule::Init()
 
 
 void
-EyeModule::Tick()
+BlinkModule::Tick()
 {
     
     
@@ -102,4 +102,4 @@ EyeModule::Tick()
 
 // Install the module. This code is executed during start-up.
 
-static InitClass init("EyeModule", &EyeModule::Create, "Source/UserModules/EyeModule/");
+static InitClass init("BlinkModule", &BlinkModule::Create, "Source/UserModules/BlinkModule/");

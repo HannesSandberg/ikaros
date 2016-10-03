@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<group name="BlinkModule" description="minimal example module">
+
+	<description type="text">
+		Module that can be used as a start for a new module.
+		Simply change all occurrences of "BlinkModule" to the name of your new module in
+		BlinkModule.cc, BlinkModule.h and BlinkModule.ikc (this file), rename the files, and fill
+		in the new code and documentation. This module is located in the
+		UserModules directory.
+	</description>
+
+	<example description="A simple example">
+		<module
+			class="BlinkModule"
+			name="BlinkModule"
+            outputsize = "4"
+            data = "1 2 3 4"
+		/>
+	</example>
+    <example description="Matrix example; WARNING: this does not currently work. ';' are necessary to ,ark end of row.">
+        <module
+        class="BlinkModule"
+        name="MatrixBlinkModule"
+        outputsize_x = "3"
+        outputsize_y = "3"
+        data = "1 2 3 2 3 4 3 4 5"
+        />
+    </example>
+    
+    <example description="Autosize example">
+        <module
+        class="BlinkModule"
+        name="Matrix3x4"
+        data = "1 2 3; 2 3 4; 3 4 5; 4 5 6"
+        />
+    </example>
+
+
+	<output name="OUTPUT" description="The output" size_param="outputsize" size_param_x="outputsize_x" size_param_y="outputsize_y" />
+    
+
+	<module class="BlinkModule" />
+
+	<author>
+		<name>Christian Balkenius</name>
+		<email>christian.balkenius@lucs.lu.se</email>
+		<affiliation>Lund University Cognitive Science</affiliation>
+		<homepage>http://www.lucs.lu.se/Christian.Balkenius</homepage>
+	</author>
+
+   <files>
+   		<file>BlinkModule.h</file>
+   		<file>BlinkModule.cc</file>
+   		<file>BlinkModule.ikc</file>
+   </files>
+
+</group>

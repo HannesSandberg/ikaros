@@ -25,6 +25,7 @@
 #include "WebUI.h"
 
 #ifdef USE_SOCKET
+//#include "IKAROS_ColorTables.h"
 #include "Kernel/IKAROS_ColorTables.h"
 
 #ifdef WINDOWS

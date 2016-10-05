@@ -153,10 +153,17 @@
     <module
     class="Constant"
     name = "ColorConstant"
-    data = "0 1 0"
+    data = "1 1 1"
+    />
+    
+    <module
+    class="Constant"
+    name = "PatternConstant"
+    data = "2"
     />
 
         <connection sourcemodule = "ColorConstant" source = "OUTPUT" targetmodule = "EyeModule" target = "INPUTCOLOR" />
+        <connection sourcemodule = "PatternConstant" source = "OUTPUT" targetmodule = "EyeModule" target = "INPUTPATTERN" />
         
 	   	<connection sourcemodule = "EyeModule" source = "OUTPUTRED" targetmodule = "FadeCandy" target = "LEFT_EYE_RED" />
     	<connection sourcemodule = "EyeModule" source = "OUTPUTGREEN" targetmodule = "FadeCandy" target = "LEFT_EYE_GREEN" />

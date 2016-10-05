@@ -38,6 +38,8 @@
     
     <input name="INPUTCOLOR" description="The input for which colors should be used" />
     
+    <input name="INPUTPATTERN" description="The input for which pattern of leds to be used" />
+    
 	<output name="OUTPUT" description="The output" size_param="outputsize" size_param_x="outputsize_x" size_param_y="outputsize_y" />
     
     <output name="OUTPUTRED" description="The output for red" size_param="outputsize" size_param_x="outputsize_x" size_param_y="outputsize_y" />

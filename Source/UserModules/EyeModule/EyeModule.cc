@@ -82,6 +82,11 @@ EyeModule::Init()
     
     input_color_array = GetInputArray("INPUTCOLOR");
     input_color_array_size = GetInputSize("INPUTCOLOR");
+    
+    input_pattern_array = GetInputArray("INPUTPATTERN");
+    input_pattern_array_size = GetInputSize("INPUTPATTERN");
+    
+    blinkTick       = 0;
 }
 
 
@@ -89,38 +94,99 @@ EyeModule::Init()
 void
 EyeModule::Tick()
 {
-    
-    
-    // Copy every iteration if parameter changed through the binding
-    if (i>11){i=0;}
-    if (j>11){j=0;}
-    if(output[0][i]<1){
-        output[0][i] = prev_output[0][i] + 0.25;
-        output[0][j] = prev_output[0][j] - 0.25;
+    if(input_pattern_array[0] == 0){
+        //Nothing (standard white eyes
+        for(int k = 0; k < outputsize_x; k++ ){
+            outputRED[0][k] = 0.5;
+            outputGREEN[0][k] = 0.5;
+            outputBLUE[0][k] = 0.5;
+        }
+    }else if(input_pattern_array[0] == 1){
+        //Loading
+        // Copy every iteration if parameter changed through the binding
+        if (i>11){i=0;}
+        if (j>11){j=0;}
+        if(output[0][i]<1){
+            output[0][i] = prev_output[0][i] + 0.25;
+            output[0][j] = prev_output[0][j] - 0.25;
             prev_output[0][i] = output[0][i];
-//        outputBLUE[0][i] = output[0][i];
+//            outputBLUE[0][i] = output[0][i];
         }else{
             i++;
             j++;
         }
-    
-    for(int k = 0; k < outputsize_x; k++ ){
-        for(int f = 0; f < outputsize_y; f++ ){
-            if(InputConnected("INPUTCOLOR")){
-                if(input_color_array[0] == 1){
-                    outputRED[f][k] = output[f][k];
-                }else if(input_color_array[1] == 1){
-                    outputGREEN[f][k] = output[f][k];
-                }else if(input_color_array[2] == 1){
+        for(int k = 0; k < outputsize_x; k++ ){
+            for(int k = 0; k < outputsize_x; k++ ){
+                for(int f = 0; f < outputsize_y; f++ ){
                     outputBLUE[f][k] = output[f][k];
+                    outputGREEN[f][k] = 0;
+                    outputRED[f][k] = 0;
                 }
-            }else{
-                outputRED[f][k] = output[f][k];
-                outputGREEN[f][k] = output[f][k];
-                outputBLUE[f][k] = output[f][k];
             }
         }
+    }else if(input_pattern_array[0] == 2){
+        //Angry
+        for(int k = 0; k < outputsize_x; k++ ){
+            outputRED[0][k] = 0.5;
+            outputGREEN[0][k] = 0;
+            outputBLUE[0][k] = 0;
+        }
     }
+
+    //Blink
+    if(blinkTick >= 70){
+        blinkTick = 0;
+    }
+    if(blinkTick < 1){
+        for(int a = 8; a <= 9; a++){
+            outputRED[0][a] = 0;
+            outputGREEN[0][a] = 0;
+            outputBLUE[0][a] = 0;
+        }
+        for(int a = 2; a <= 3; a++){
+            outputRED[0][a] = 0;
+            outputGREEN[0][a] = 0;
+            outputBLUE[0][a] = 0;
+        }
+    }else if(blinkTick < 2){
+        for(int a = 7; a <= 10; a++){
+            outputRED[0][a] = 0;
+            outputGREEN[0][a] = 0;
+            outputBLUE[0][a] = 0;
+        }
+        for(int a = 1; a <= 4; a++){
+            outputRED[0][a] = 0;
+            outputGREEN[0][a] = 0;
+            outputBLUE[0][a] = 0;
+        }
+    }else if(blinkTick < 3){
+        for(int a = 0; a <= 11; a++){
+            outputRED[0][a] = 0;
+            outputGREEN[0][a] = 0;
+            outputBLUE[0][a] = 0;
+        }
+    }
+    blinkTick++;
+    
+//    for(int k = 0; k < outputsize_x; k++ ){
+//        for(int f = 0; f < outputsize_y; f++ ){
+//            if(InputConnected("INPUTCOLOR")){
+//                if(input_color_array[0] == 1){
+//                    outputRED[f][k] = output[f][k];
+//                }
+//                if(input_color_array[1] == 1){
+//                    outputGREEN[f][k] = output[f][k];
+//                }
+//                if(input_color_array[2] == 1){
+//                    outputBLUE[f][k] = output[f][k];
+//                }
+//            }else{
+//                outputRED[f][k] = output[f][k];
+//                outputGREEN[f][k] = output[f][k];
+//                outputBLUE[f][k] = output[f][k];
+//            }
+//        }
+//    }
     
 }
 

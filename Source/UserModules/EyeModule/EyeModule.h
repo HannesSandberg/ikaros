@@ -40,9 +40,13 @@ public:
     int         outputsize_y;
     int         i;
     int         j;
+    int         blinkTick;
 
     float *     input_color_array;
     int         input_color_array_size;
+    
+    float *     input_pattern_array;
+    int         input_pattern_array_size;
     
     EyeModule(Parameter * p) : Module(p) {}
     virtual	~EyeModule() {}

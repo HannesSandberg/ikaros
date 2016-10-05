@@ -1,5 +1,5 @@
 //
-//	PupilModule.cc		This file is a part of the IKAROS project
+//	HeadMovementModule.cc		This file is a part of the IKAROS project
 //
 //    Copyright (C) 2012 <Author Name>
 //
@@ -24,14 +24,15 @@
 //  If you prefer to start with a clean example, use he module MinimalModule instead.
 //
 
-#include "PupilModule.h"
+#include "HeadMovementModule.h"
 
 // use the ikaros namespace to access the math library
 // this is preferred to using <cmath>
 
 using namespace ikaros;
+
 void
-PupilModule::SetSizes() // Infer output size from data if none is given
+HeadMovementModule::SetSizes() // Infer output size from data if none is given
 {
     if(GetValue("outputsize"))
     {
@@ -59,13 +60,19 @@ PupilModule::SetSizes() // Infer output size from data if none is given
 
 
 void
-PupilModule::Init()
+HeadMovementModule::Init()
 {
     
     output          =	GetOutputMatrix("OUTPUT");
     outputsize_x	=	GetOutputSizeX("OUTPUT");
     outputsize_y	=	GetOutputSizeY("OUTPUT");
     prev_output = GetOutputMatrix("OUTPUT");
+    i = 0;
+    j = 0;
+    output[0][0] = 180;
+    output[0][1] = 180;
+    output[0][2] = 180;
+    output[0][3] = 180;
     
     
     Bind(data, outputsize_x, outputsize_y, "data");
@@ -76,29 +83,58 @@ PupilModule::Init()
 
 
 void
-PupilModule::Tick()
+HeadMovementModule::Tick()
 {
-   //smallest
-   /**
-    output[0][0]=250;
-    output[0][1]=250;
-     **/
+// max värdern
+    //nacke up och ner
+//        output[0][0] = 230;
+    //huvud sida åt sida
+//        output[0][1] = 240;
+    //ögon
+//        output[0][2] = 200;
+//        output[0][3] = 200;
     
-    //largest
-    output[0][0]=190;
-    output[0][1]=190;
-   
-    /**
-    //middle
-    output[0][0]=220;
-    output[0][1]=220;
-  **/
+// min värdern
+//        output[0][0] = 130;
+//        output[0][1] = 120;
+//        output[0][2] = 160;
+//        output[0][3] = 160;
+    
+    
+    if(i==0 && output[0][1]<240){
+        output[0][1]++;
+        if(output[0][1]==240){
+            i = 1;
+        }
+        
+    }else{
+        output[0][1]= output[0][1]-1;
+        if(output[0][1]==130){
+            i= 0;
+        }
+        
+    }
+    
+    
+//    for(i;i < 100 && i> 1;i++){
+//    output[0][0]=prev_output[0][0]+1;
+//    output[0][0]=prev_output[0][0];
+//    output[0][1]=prev_output[0][1]+1;
+//    output[0][1]=prev_output[0][1];
+//    output[0][2]=prev_output[0][2]+1;
+//    output[0][2]=prev_output[0][2];
+//    output[0][3]=prev_output[0][3]+1;
+//    output[0][3]=prev_output[0][3];
+//    
+//    }
+    
+    
 }
 
 
 
 // Install the module. This code is executed during start-up.
 
-static InitClass init("PupilModule", &PupilModule::Create, "Source/UserModules/PupilModule/");
+static InitClass init("HeadMovementModule", &HeadMovementModule::Create, "Source/UserModules/HeadMovementModule/");
 
 

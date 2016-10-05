@@ -159,7 +159,7 @@
     <module
     class="Constant"
     name = "PatternConstant"
-    data = "2"
+    data = "3"
     />
 
         <connection sourcemodule = "ColorConstant" source = "OUTPUT" targetmodule = "EyeModule" target = "INPUTCOLOR" />

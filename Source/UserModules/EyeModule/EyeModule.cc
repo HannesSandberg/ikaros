@@ -131,6 +131,13 @@ EyeModule::Tick()
             outputGREEN[0][k] = 0;
             outputBLUE[0][k] = 0;
         }
+    }else if(input_pattern_array[0] == 3){
+        //Happy
+        for(int k = 0; k < outputsize_x; k++ ){
+            outputRED[0][k] = 0;
+            outputGREEN[0][k] = 0.5;
+            outputBLUE[0][k] = 0;
+        }
     }
 
     //Blink

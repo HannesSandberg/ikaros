@@ -4,8 +4,8 @@ add_subdirectory(MinimalModule)
 add_subdirectory(MyModule)
 add_subdirectory(EyeModule)
 add_subdirectory(PupilModule)
+add_subdirectory(HeadMovementModule)
 add_subdirectory(BlinkModule)
-add_subdirectory(HeadMovmentModule)
 
 
 

@@ -82,17 +82,17 @@ PupilModule::Tick()
    /**
     output[0][0]=250;
     output[0][1]=250;
-    
+     **/
     
     //largest
     output[0][0]=190;
     output[0][1]=190;
-    **/
-    
+   
+    /**
     //middle
     output[0][0]=220;
     output[0][1]=220;
-  
+  **/
 }
 
 

@@ -68,7 +68,7 @@ HeadMovementModule::Init()
     outputsize_y	=	GetOutputSizeY("OUTPUT");
     prev_output = GetOutputMatrix("OUTPUT");
     i = 0;
-    j = 180;
+    j = 0;
     output[0][0] = 180;
     output[0][1] = 180;
     output[0][2] = 180;
@@ -100,6 +100,7 @@ HeadMovementModule::Tick()
 //        output[0][2] = 160;
 //        output[0][3] = 160;
     
+    
     if(i==0 && output[0][1]<240){
         output[0][1]++;
         if(output[0][1]==240){
@@ -107,15 +108,13 @@ HeadMovementModule::Tick()
         }
         
     }else{
-        output[0][0]--;
+        output[0][1]= output[0][1]-1;
         if(output[0][1]==130){
             i= 0;
         }
         
     }
-    i++;
     
-   
     
 //    for(i;i < 100 && i> 1;i++){
 //    output[0][0]=prev_output[0][0]+1;

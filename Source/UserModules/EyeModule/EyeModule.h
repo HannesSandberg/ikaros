@@ -40,6 +40,9 @@ public:
     int         outputsize_y;
     int         i;
     int         j;
+
+    float *     input_color_array;
+    int         input_color_array_size;
     
     EyeModule(Parameter * p) : Module(p) {}
     virtual	~EyeModule() {}

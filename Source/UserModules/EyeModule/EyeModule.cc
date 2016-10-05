@@ -52,7 +52,7 @@ EyeModule::SetSizes() // Infer output size from data if none is given
         Module::SetSizes();
         return;
     }
-    
+
     int sx, sy;
     float ** m = create_matrix(GetValue("data"), sx, sy); // get the sizes but ignore the data
     SetOutputSize("OUTPUT", sx, sy);
@@ -71,14 +71,17 @@ EyeModule::Init()
     output          =	GetOutputMatrix("OUTPUT");
     outputsize_x	=	GetOutputSizeX("OUTPUT");
     outputsize_y	=	GetOutputSizeY("OUTPUT");
-    prev_output = GetOutputMatrix("OUTPUT");
+    prev_output     =   GetOutputMatrix("OUTPUT");
     i = 0;
     j = -3;
-    outputRED         =	GetOutputMatrix("OUTPUTRED");
-    outputGREEN       =	GetOutputMatrix("OUTPUTGREEN");
-    outputBLUE        =	GetOutputMatrix("OUTPUTBLUE");
+    outputRED       =	GetOutputMatrix("OUTPUTRED");
+    outputGREEN     =	GetOutputMatrix("OUTPUTGREEN");
+    outputBLUE      =	GetOutputMatrix("OUTPUTBLUE");
     
     Bind(data, outputsize_x, outputsize_y, "data");
+    
+    input_color_array = GetInputArray("INPUTCOLOR");
+    input_color_array_size = GetInputSize("INPUTCOLOR");
 }
 
 
@@ -103,10 +106,22 @@ EyeModule::Tick()
     
     for(int k = 0; k < outputsize_x; k++ ){
         for(int f = 0; f < outputsize_y; f++ ){
-            outputBLUE[f][k] = output[f][k];
+            if(InputConnected("INPUTCOLOR")){
+                if(input_color_array[0] == 1){
+                    outputRED[f][k] = output[f][k];
+                }else if(input_color_array[1] == 1){
+                    outputGREEN[f][k] = output[f][k];
+                }else if(input_color_array[2] == 1){
+                    outputBLUE[f][k] = output[f][k];
+                }
+            }else{
+                outputRED[f][k] = output[f][k];
+                outputGREEN[f][k] = output[f][k];
+                outputBLUE[f][k] = output[f][k];
+            }
         }
     }
-     
+    
 }
 
 

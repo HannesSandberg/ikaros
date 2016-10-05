@@ -130,7 +130,7 @@
         class="EyeModule"
         name = "EyeModule"
         data = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
-        colorData = "1"
+        colorData = "1 0 0"
     />
     
     <module
@@ -149,8 +149,15 @@
     name = "B"
     data = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
     />
+    
+    <module
+    class="Constant"
+    name = "ColorConstant"
+    data = "0 1 0"
+    />
 
-
+        <connection sourcemodule = "ColorConstant" source = "OUTPUT" targetmodule = "EyeModule" target = "INPUTCOLOR" />
+        
 	   	<connection sourcemodule = "EyeModule" source = "OUTPUTRED" targetmodule = "FadeCandy" target = "LEFT_EYE_RED" />
     	<connection sourcemodule = "EyeModule" source = "OUTPUTGREEN" targetmodule = "FadeCandy" target = "LEFT_EYE_GREEN" />
     	<connection sourcemodule = "EyeModule" source = "OUTPUTBLUE" targetmodule = "FadeCandy" target = "LEFT_EYE_BLUE" />

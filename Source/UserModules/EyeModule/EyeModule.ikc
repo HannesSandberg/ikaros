@@ -35,9 +35,16 @@
         data = "1 2 3; 2 3 4; 3 4 5; 4 5 6"
         />
     </example>
-
-
+    
+    <input name="INPUTCOLOR" description="The input for which colors should be used" />
+    
 	<output name="OUTPUT" description="The output" size_param="outputsize" size_param_x="outputsize_x" size_param_y="outputsize_y" />
+    
+    <output name="OUTPUTRED" description="The output for red" size_param="outputsize" size_param_x="outputsize_x" size_param_y="outputsize_y" />
+    
+    <output name="OUTPUTGREEN" description="The output for green" size_param="outputsize" size_param_x="outputsize_x" size_param_y="outputsize_y" />
+    
+    <output name="OUTPUTBLUE" description="The output for blue" size_param="outputsize" size_param_x="outputsize_x" size_param_y="outputsize_y" />
     
 
 	<module class="EyeModule" />

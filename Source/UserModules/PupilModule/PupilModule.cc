@@ -23,13 +23,13 @@
 //  The example includes most of the calls that you may want to use in a module.
 //  If you prefer to start with a clean example, use he module MinimalModule instead.
 //
-
 #include "PupilModule.h"
 
 // use the ikaros namespace to access the math library
 // this is preferred to using <cmath>
 
 using namespace ikaros;
+
 void
 PupilModule::SetSizes() // Infer output size from data if none is given
 {
@@ -66,6 +66,12 @@ PupilModule::Init()
     outputsize_x	=	GetOutputSizeX("OUTPUT");
     outputsize_y	=	GetOutputSizeY("OUTPUT");
     prev_output = GetOutputMatrix("OUTPUT");
+    i = 0;
+    j = 0;
+    output[0][0] = 180;
+    output[0][1] = 180;
+    output[0][2] = 180;
+    output[0][3] = 180;
     
     
     Bind(data, outputsize_x, outputsize_y, "data");
@@ -78,21 +84,42 @@ PupilModule::Init()
 void
 PupilModule::Tick()
 {
-   //smallest
-   /**
-    output[0][0]=250;
-    output[0][1]=250;
-     **/
     
-    //largest
-    output[0][0]=190;
-    output[0][1]=190;
+    
+    // min värdern
+            output[0][0] = 190;
+            output[0][1] = 190;
    
-    /**
-    //middle
-    output[0][0]=220;
-    output[0][1]=220;
-  **/
+    
+    
+//    if(i==0 && output[0][1]<240){
+//        output[0][1]++;
+//        if(output[0][1]==240){
+//            i = 1;
+//        }
+//        
+//    }else{
+//        output[0][1]= output[0][1]-1;
+//        if(output[0][1]==130){
+//            i= 0;
+//        }
+//        
+//    }
+    
+    
+    //    for(i;i < 100 && i> 1;i++){
+    //    output[0][0]=prev_output[0][0]+1;
+    //    output[0][0]=prev_output[0][0];
+    //    output[0][1]=prev_output[0][1]+1;
+    //    output[0][1]=prev_output[0][1];
+    //    output[0][2]=prev_output[0][2]+1;
+    //    output[0][2]=prev_output[0][2];
+    //    output[0][3]=prev_output[0][3]+1;
+    //    output[0][3]=prev_output[0][3];
+    //
+    //    }
+    
+    
 }
 
 
@@ -100,5 +127,7 @@ PupilModule::Tick()
 // Install the module. This code is executed during start-up.
 
 static InitClass init("PupilModule", &PupilModule::Create, "Source/UserModules/PupilModule/");
+
+
 
 

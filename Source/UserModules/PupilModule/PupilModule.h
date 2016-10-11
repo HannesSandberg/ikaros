@@ -25,7 +25,6 @@
 
 #include "IKAROS.h"
 
-
 class PupilModule: public Module
 {
 public:
@@ -45,7 +44,7 @@ public:
     void            SetSizes();
     
     void			Init();
-    void			Tick();
-};
+    void			Tick();};
 
 #endif
+

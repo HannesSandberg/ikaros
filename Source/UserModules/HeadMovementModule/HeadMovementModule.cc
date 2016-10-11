@@ -103,14 +103,17 @@ HeadMovementModule::Tick()
     
     if(i==0 && output[0][1]<240){
         output[0][1]++;
+        
         if(output[0][1]==240){
             i = 1;
-        }
+                   }
         
     }else{
         output[0][1]= output[0][1]-1;
+        
         if(output[0][1]==130){
             i= 0;
+           
         }
         
     }

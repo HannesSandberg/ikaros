@@ -11,8 +11,9 @@
    name="Pupil"
    data="190 250"/>
    
+   
         <connection sourcemodule = "Pupil" source = "OUTPUT" targetmodule = "GuardPupil" target = "INPUT" delay = "0" />
-
+        <connection sourcemodule = "PatternConstant" source = "OUTPUT" targetmodule = "Pupil" target = "INPUTPATTERN" />
 
 
 

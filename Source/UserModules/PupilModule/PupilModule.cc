@@ -73,6 +73,9 @@ PupilModule::Init()
     output[0][2] = 180;
     output[0][3] = 180;
     
+    input_pattern_array = GetInputArray("INPUTPATTERN");
+    input_pattern_array_size = GetInputSize("INPUTPATTERN");
+    
     
     Bind(data, outputsize_x, outputsize_y, "data");
 }
@@ -87,38 +90,32 @@ PupilModule::Tick()
     
     
     // min värdern
-            output[0][0] = 190;
-            output[0][1] = 190;
+    
+    
    
     
     
-//    if(i==0 && output[0][1]<240){
-//        output[0][1]++;
-//        if(output[0][1]==240){
-//            i = 1;
-//        }
-//        
-//    }else{
-//        output[0][1]= output[0][1]-1;
-//        if(output[0][1]==130){
-//            i= 0;
-//        }
-//        
-//    }
-    
-    
-    //    for(i;i < 100 && i> 1;i++){
-    //    output[0][0]=prev_output[0][0]+1;
-    //    output[0][0]=prev_output[0][0];
-    //    output[0][1]=prev_output[0][1]+1;
-    //    output[0][1]=prev_output[0][1];
-    //    output[0][2]=prev_output[0][2]+1;
-    //    output[0][2]=prev_output[0][2];
-    //    output[0][3]=prev_output[0][3]+1;
-    //    output[0][3]=prev_output[0][3];
-    //
-    //    }
-    
+    if(input_pattern_array[0] == 0){
+        //Nothing (standard white eyes
+        output[0][0] = 220;
+        output[0][1] = 220;
+       
+    }else if(input_pattern_array[0] == 1){
+        //Loading
+        // Copy every iteration if parameter changed through the binding
+        output[0][0] = 220;
+        output[0][1] = 220;
+    }else if(input_pattern_array[0] == 2){
+        //Angry
+        output[0][0] = 250;
+        output[0][1] = 250;
+    }else if(input_pattern_array[0] == 3){
+        //Happy
+                output[0][0] = 190;
+                output[0][1] = 190;
+        
+    }
+
     
 }
 

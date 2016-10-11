@@ -100,23 +100,51 @@ HeadMovementModule::Tick()
 //        output[0][2] = 160;
 //        output[0][3] = 160;
     
-    
-    if(i==0 && output[0][1]<240){
-        output[0][1]++;
-        
-        if(output[0][1]==240){
-            i = 1;
-                   }
-        
-    }else{
-        output[0][1]= output[0][1]-1;
-        
-        if(output[0][1]==130){
-            i= 0;
-           
-        }
-        
-    }
+//    röra huvudet höger till vänster
+//    if(i==0 && output[0][1]<240){
+//        output[0][1]++;
+//        
+//        if(output[0][1]==240){
+//            i = 1;
+//                   }
+//        
+//    }else{
+//        output[0][1]= output[0][1]-1;
+//        
+//        if(output[0][1]==130){
+//            i= 0;
+//           
+//        }
+//        
+//    }
+//
+  
+//    ögon höger till vänster
+//    if(j%6 == 1){
+//    
+//    if(i==0 && output[0][2]<200){
+//                output[0][2]++;
+//                output[0][3]++;
+//        
+//                if(output[0][2]>=200){
+//                    i = 1;
+//                           }
+//        
+//            }else{
+//                output[0][2]= output[0][2]-1;
+//                output[0][3]= output[0][3]-1;
+//        
+//                if(output[0][2]<=160 ){
+//                    i= 0;
+//                    output[0][2]= 160;
+//                    output[0][3]= 160;
+//                   
+//                }
+//                
+//            }
+//        }
+//    j++;
+//    
     
     
 //    for(i;i < 100 && i> 1;i++){

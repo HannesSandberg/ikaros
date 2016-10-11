@@ -20,15 +20,15 @@
 //    See http://www.ikaros-project.org/ for more information.
 //
 
-#ifndef BlinkModule_
-#define BlinkModule_
+#ifndef DecisionModule_
+#define DecisionModule_
 
 #include "IKAROS.h"
 
-class BlinkModule: public Module
+class DecisionModule: public Module
 {
 public:
-    static Module * Create(Parameter * p) { return new BlinkModule(p); }
+    static Module * Create(Parameter * p) { return new DecisionModule(p); }
     
     float **	data;
     float **	output;
@@ -38,8 +38,12 @@ public:
     int         i;
     int         j;
     
-    BlinkModule(Parameter * p) : Module(p) {}
-    virtual	~BlinkModule() {}
+    float **    input_marker_matrix;
+    int         input_marker_matrix_size_x;
+    int         input_marker_matrix_size_y;
+
+    DecisionModule(Parameter * p) : Module(p) {}
+    virtual	~DecisionModule() {}
     
     void            SetSizes();
     

@@ -1,5 +1,5 @@
 //
-//	BlinkModule.cc		This file is a part of the IKAROS project
+//	DecisionModule.cc		This file is a part of the IKAROS project
 //
 //    Copyright (C) 2012 <Author Name>
 //
@@ -24,7 +24,7 @@
 //  If you prefer to start with a clean example, use he module MinimalModule instead.
 //
 
-#include "BlinkModule.h"
+#include "DecisionModule.h"
 
 // use the ikaros namespace to access the math library
 // this is preferred to using <cmath>
@@ -33,7 +33,7 @@ using namespace ikaros;
 
 
 void
-BlinkModule::SetSizes() // Infer output size from data if none is given
+DecisionModule::SetSizes() // Infer output size from data if none is given
 {
     if(GetValue("outputsize"))
     {
@@ -62,39 +62,36 @@ BlinkModule::SetSizes() // Infer output size from data if none is given
 
 
 void
-BlinkModule::Init()
+DecisionModule::Init()
 {
     output          =	GetOutputMatrix("OUTPUT");
     outputsize_x	=	GetOutputSizeX("OUTPUT");
     outputsize_y	=	GetOutputSizeY("OUTPUT");
-    prev_output = GetOutputMatrix("OUTPUT");
+    prev_output     =   GetOutputMatrix("OUTPUT");
     i = 0;
     j = -3;
     
     Bind(data, outputsize_x, outputsize_y, "data");
+    
+    input_marker_matrix = GetInputMatrix("INPUTMARKERS");
+    input_marker_matrix_size_x = GetInputSizeX("INPUTMARKERS");
+    input_marker_matrix_size_y = GetInputSizeY("INPUTMARKERS");
 }
 
 
 
 void
-BlinkModule::Tick()
+DecisionModule::Tick()
 {
     
     
-    // Copy every iteration if parameter changed through the binding
-    if (i>11){i=0;}
-    if (j>11){j=0;}
-    if(output[0][i]<1){
-        output[0][i] = prev_output[0][i] + 0.25;
-        output[0][j] = prev_output[0][j] - 0.25;
-            prev_output[0][i] = output[0][i];
-        }else{
-            i++;
-            j++;
-        }
     
-        
-    
+//    for (int i = 0; i < input_marker_array_size; i++) {
+//        printf(input_marker_array[i]);
+//        
+//    }
+    output[0][0] = 1;
+    //print_matrix("input marker: ", &input_marker_matrix[i], input_marker_matrix_size_x, input_marker_matrix_size_y);
  
      
 }
@@ -102,4 +99,4 @@ BlinkModule::Tick()
 
 // Install the module. This code is executed during start-up.
 
-static InitClass init("BlinkModule", &BlinkModule::Create, "Source/UserModules/BlinkModule/");
+static InitClass init("DecisionModule", &DecisionModule::Create, "Source/UserModules/DecisionModule/");

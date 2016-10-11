@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<group title="DecisionModule Example">
+
+		<module
+			class = "Constant"
+			name = "MyConstant"
+			outputsize  = "2"
+			data  = "1 2"
+		/>
+
+		<module
+			class = "DecisionModule"
+			name = "DecisionModuleInstance"
+			parameter1  = "1.23"
+			parameter2  = "12"
+		/>
+
+        <connection sourcemodule = "MyConstant" source = "OUTPUT" targetmodule = "DecisionModuleInstance" target = "INPUT1" />
+        <connection sourcemodule = "MyConstant" source = "OUTPUT" targetmodule = "DecisionModuleInstance" target = "INPUT2" />
+
+		<view name="View">
+			<object class="BarGraph" module="DecisionModuleInstance" source="OUTPUT1" x="0" y="0" />
+			<object class="BarGraph" module="DecisionModuleInstance" source="OUTPUT2" x="1" y="0" />
+		</view>
+
+</group>

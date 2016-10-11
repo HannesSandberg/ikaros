@@ -29,7 +29,7 @@
 		list_devices = "yes"
 		id ="0"
 		frame_rate = "15"
-        period ="20"
+        period ="1"
 	/>
     
     <!-- Detectors -->
@@ -189,9 +189,9 @@
     	<connection sourcemodule = "EyeModule" source = "OUTPUTGREEN" targetmodule = "FadeCandy" target = "RIGHT_EYE_GREEN" />
     	<connection sourcemodule = "EyeModule" source = "OUTPUTBLUE" targetmodule = "FadeCandy" target = "RIGHT_EYE_BLUE" />
     
-    	<connection sourcemodule = "EyeModule" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_TOP_RED" />
-    	<connection sourcemodule = "EyeModule" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_TOP_GREEN" />
-    	<connection sourcemodule = "EyeModule" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_TOP_BLUE" />
+    	<connection sourcemodule = "EyeModule" source = "OUTPUT2" targetmodule = "FadeCandy" target = "MOUTH_TOP_RED" />
+    	<connection sourcemodule = "EyeModule" source = "OUTPUT2" targetmodule = "FadeCandy" target = "MOUTH_TOP_GREEN" />
+    	<connection sourcemodule = "EyeModule" source = "OUTPUT2" targetmodule = "FadeCandy" target = "MOUTH_TOP_BLUE" />
             
     	<connection sourcemodule = "EyeModule" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_BOTTOM_RED" />
     	<connection sourcemodule = "EyeModule" source = "OUTPUT" targetmodule = "FadeCandy" target = "MOUTH_BOTTOM_GREEN" />

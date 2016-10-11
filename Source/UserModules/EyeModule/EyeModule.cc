@@ -56,6 +56,7 @@ EyeModule::SetSizes() // Infer output size from data if none is given
     int sx, sy;
     float ** m = create_matrix(GetValue("data"), sx, sy); // get the sizes but ignore the data
     SetOutputSize("OUTPUT", sx, sy);
+    SetOutputSize("OUTPUT2", sx, sy);
     SetOutputSize("OUTPUTRED", sx, sy);
     SetOutputSize("OUTPUTGREEN", sx, sy);
     SetOutputSize("OUTPUTBLUE", sx, sy);
@@ -69,6 +70,7 @@ EyeModule::Init()
 {
     
     output          =	GetOutputMatrix("OUTPUT");
+    output2         =	GetOutputMatrix("OUTPUT2");
     outputsize_x	=	GetOutputSizeX("OUTPUT");
     outputsize_y	=	GetOutputSizeY("OUTPUT");
     prev_output     =   GetOutputMatrix("OUTPUT");
@@ -94,6 +96,19 @@ EyeModule::Init()
 void
 EyeModule::Tick()
 {
+//    
+//    output[0][1]=0;
+//    output[0][2]=0;
+//    output[0][5]=0;
+//    output[0][6]=0;
+//    output2[0][1]=0;
+//    output2[0][2]=0;
+//    output2[0][3]=0;
+//    output2[0][4]=0;
+//    output2[0][5]=0;
+//    output2[0][6]=0;
+    
+    
     if(input_pattern_array[0] == 0){
         //Nothing (standard white eyes
         for(int k = 0; k < outputsize_x; k++ ){
@@ -144,6 +159,18 @@ EyeModule::Tick()
             outputGREEN[0][k] = 0.5;
             outputBLUE[0][k] = 0;
         }
+//        output[0][1]=1;
+////        output[0][2]=1;
+////        output[0][5]=1;
+//        output[0][6]=1;
+////        output2[0][1]=1;
+//        output2[0][2]=1;
+//        output2[0][3]=1;
+//        output2[0][4]=1;
+//        output2[0][5]=1;
+////        output2[0][6]=1;
+        
+        
     }
     float random = ikaros::random(0.8, 1.2);
     //Blink

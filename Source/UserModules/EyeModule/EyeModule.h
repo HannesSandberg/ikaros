@@ -32,6 +32,7 @@ public:
     
     float **	data;
     float **	output;
+    float **	output2;
     float **	outputRED;
     float **	outputGREEN;
     float **	outputBLUE;

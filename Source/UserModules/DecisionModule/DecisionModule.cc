@@ -76,6 +76,7 @@ DecisionModule::Init()
     input_marker_matrix = GetInputMatrix("INPUTMARKERS");
     input_marker_matrix_size_x = GetInputSizeX("INPUTMARKERS");
     input_marker_matrix_size_y = GetInputSizeY("INPUTMARKERS");
+    output[0][0] = 0;
 }
 
 
@@ -85,14 +86,30 @@ DecisionModule::Tick()
 {
     
     
+
+    int id = input_marker_matrix[0][16];
     
-//    for (int i = 0; i < input_marker_array_size; i++) {
-//        printf(input_marker_array[i]);
-//        
-//    }
-    output[0][0] = 1;
-    //print_matrix("input marker: ", &input_marker_matrix[i], input_marker_matrix_size_x, input_marker_matrix_size_y);
- 
+    if(id == 1502){
+        //Angry
+        output[0][0] = 2;
+        i = 2;
+    }else if(id == 1503){
+        //Happy
+        output[0][0] = 3;
+        i = 2;
+    }else if(id == 1505){
+        //Loading
+        output[0][0] = 1;
+        i = 2;
+    }
+
+    if(i % 100 == 1){
+        if(id == 0){
+            output[0][0] = 0;
+        }
+    }
+
+    i++;
      
 }
 

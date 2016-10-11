@@ -14,7 +14,8 @@
    
    
         <connection sourcemodule = "Pupil" source = "OUTPUT" targetmodule = "GuardPupil" target = "INPUT" delay = "0" />
-        <connection sourcemodule = "PatternConstant" source = "OUTPUT" targetmodule = "Pupil" target = "INPUTPATTERN" />
+<!--        <connection sourcemodule = "PatternConstant" source = "OUTPUT" targetmodule = "Pupil" target = "INPUTPATTERN" />-->
+        <connection sourcemodule = "DecisionModule" source = "OUTPUT" targetmodule = "Pupil" target = "INPUTPATTERN" />
 
 
 

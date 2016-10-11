@@ -5,7 +5,7 @@
 
     <module class="HeadMovementModule" name="NeckEyeConstant" data = "180 180 180 180" />
         <connection sourcemodule = "NeckEyeConstant" source = "OUTPUT" targetmodule = "GuardNeckEyes" target = "INPUT" delay = "0" />
-    <module class="PupilModule" name="PupilConstant" data="190 190" />
+    <module class="Constant" name="PupilConstant" data="190 190" />
         <connection sourcemodule = "PupilConstant" source = "OUTPUT" targetmodule = "GuardPupil" target = "INPUT" delay = "0" />
 
 
@@ -18,7 +18,7 @@
 		_size_x  = "640"
 		_size_y  = "480"
 		list_devices = "yes"
-		id ="1"
+		id ="0"
 		frame_rate = "15"
         period ="20"
 	/>
@@ -39,7 +39,15 @@
         frame_id = "3"
         period ="5"
 	/>
+    
+    <module
+    class="DecisionModule"
+    name = "DecisionModule"
+    data = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+    />
+    
 		<connection sourcemodule = "CAMERA" source = "INTENSITY" targetmodule = "MarkerTracker" target = "INPUT" delay="1" />
+        <connection sourcemodule = "MarkerTracker" source = "MARKERS" targetmodule = "DecisionModule" target = "INPUTMARKERS" />
 
 
 	<!-- HEAD -->
@@ -159,11 +167,11 @@
     <module
     class="Constant"
     name = "PatternConstant"
-    data = "3"
+    data = "0"
     />
 
         <connection sourcemodule = "ColorConstant" source = "OUTPUT" targetmodule = "EyeModule" target = "INPUTCOLOR" />
-        <connection sourcemodule = "PatternConstant" source = "OUTPUT" targetmodule = "EyeModule" target = "INPUTPATTERN" />
+        <connection sourcemodule = "DecisionModule" source = "OUTPUT" targetmodule = "EyeModule" target = "INPUTPATTERN" />
         
 	   	<connection sourcemodule = "EyeModule" source = "OUTPUTRED" targetmodule = "FadeCandy" target = "LEFT_EYE_RED" />
     	<connection sourcemodule = "EyeModule" source = "OUTPUTGREEN" targetmodule = "FadeCandy" target = "LEFT_EYE_GREEN" />

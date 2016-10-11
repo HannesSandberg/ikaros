@@ -131,6 +131,12 @@ EyeModule::Tick()
             outputGREEN[0][k] = 0;
             outputBLUE[0][k] = 0;
         }
+//        for(int a = 7; a <= 10; a++){
+//            outputRED[0][a] = 0;
+//        }
+//        for(int a = 1; a <= 4; a++){
+//            outputRED[0][a] = 0;
+//        }
     }else if(input_pattern_array[0] == 3){
         //Happy
         for(int k = 0; k < outputsize_x; k++ ){
@@ -139,11 +145,39 @@ EyeModule::Tick()
             outputBLUE[0][k] = 0;
         }
     }
-
+    float random = ikaros::random(0.8, 1.2);
     //Blink
-    if(blinkTick >= 70){
+    if(blinkTick >= 70 * random){
         blinkTick = 0;
+        random = ikaros::random(0.8, 1.2);
     }
+    Blink();
+    
+//    for(int k = 0; k < outputsize_x; k++ ){
+//        for(int f = 0; f < outputsize_y; f++ ){
+//            if(InputConnected("INPUTCOLOR")){
+//                if(input_color_array[0] == 1){
+//                    outputRED[f][k] = output[f][k];
+//                }
+//                if(input_color_array[1] == 1){
+//                    outputGREEN[f][k] = output[f][k];
+//                }
+//                if(input_color_array[2] == 1){
+//                    outputBLUE[f][k] = output[f][k];
+//                }
+//            }else{
+//                outputRED[f][k] = output[f][k];
+//                outputGREEN[f][k] = output[f][k];
+//                outputBLUE[f][k] = output[f][k];
+//            }
+//        }
+//    }
+    
+}
+
+void
+EyeModule::Blink()
+{
     if(blinkTick < 1){
         for(int a = 8; a <= 9; a++){
             outputRED[0][a] = 0;
@@ -173,30 +207,9 @@ EyeModule::Tick()
             outputBLUE[0][a] = 0;
         }
     }
+    
     blinkTick++;
-    
-//    for(int k = 0; k < outputsize_x; k++ ){
-//        for(int f = 0; f < outputsize_y; f++ ){
-//            if(InputConnected("INPUTCOLOR")){
-//                if(input_color_array[0] == 1){
-//                    outputRED[f][k] = output[f][k];
-//                }
-//                if(input_color_array[1] == 1){
-//                    outputGREEN[f][k] = output[f][k];
-//                }
-//                if(input_color_array[2] == 1){
-//                    outputBLUE[f][k] = output[f][k];
-//                }
-//            }else{
-//                outputRED[f][k] = output[f][k];
-//                outputGREEN[f][k] = output[f][k];
-//                outputBLUE[f][k] = output[f][k];
-//            }
-//        }
-//    }
-    
 }
-
 
 // Install the module. This code is executed during start-up.
 

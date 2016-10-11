@@ -55,6 +55,7 @@ public:
     
     void			Init();
     void			Tick();
+    void            Blink();
 };
 
 #endif

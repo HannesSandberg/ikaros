@@ -89,11 +89,14 @@ HeadMovementModule::Tick()
 {
     if(input_pattern_array[0] == 0){
         //Nothing (standard white eyes
-      
+        
         
     }else if(input_pattern_array[0] == 1){
         //Loading
         // Copy every iteration if parameter changed through the binding
+        if(output[0][0] > 160){
+            output[0][0] = output[0][0] - 2;
+        }
        
     }else if(input_pattern_array[0] == 2){
         //Angry
@@ -103,9 +106,16 @@ HeadMovementModule::Tick()
         
         
     }else if(input_pattern_array[0] == 4){
-    
+        if(j<40 && output[0][0] > 160){
+           output[0][0] = output[0][0] - 2;
+        }
+        if(j>40 && j < 50){
+            output[0][0] = output[0][0]+2;
+        }
+        
     if(i>50 && i < 55)
     {
+        output[0][0] = 180;
         //output[0][1]= 700;
         
         output[0][1] = 220;
@@ -116,17 +126,21 @@ HeadMovementModule::Tick()
         //        output[0][1] = 250;
         
     } else{
-        //        if(output[0][1] < 180){
-        //          output[0][1]=output[0][1] + 10;
-        //        }else{
+        if(i>63){
+            i=45;
+        }
         output[0][1] = 180;
         
         //        }
         
     }
     i++;
+    j++;
     }
-
+if(input_pattern_array[0] != 4){
+    i=0;
+    j=0;
+}
 
     
     

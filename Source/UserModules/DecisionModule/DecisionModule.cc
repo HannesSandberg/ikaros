@@ -101,6 +101,9 @@ DecisionModule::Tick()
         //Loading
         output[0][0] = 1;
         i = 2;
+    }else if (id == 1504){
+        output[0][0] = 4;
+        i = 2;
     }
 
     if(i % 100 == 1){

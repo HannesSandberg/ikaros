@@ -42,6 +42,8 @@ public:
     int         i;
     int         j;
     int         blinkTick;
+    int         errorTick;
+    bool        blinkOn;
 
     float *     input_color_array;
     int         input_color_array_size;

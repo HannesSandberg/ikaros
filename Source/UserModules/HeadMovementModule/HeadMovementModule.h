@@ -37,6 +37,8 @@ public:
     int         outputsize_y;
     int         i;
     int         j;
+    float *     input_pattern_array;
+    int         input_pattern_array_size;
     
     HeadMovementModule(Parameter * p) : Module(p) {}
     virtual	~HeadMovementModule() {}

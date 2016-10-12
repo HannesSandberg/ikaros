@@ -42,13 +42,14 @@
 		calibration = "640 480 351.87977 249.88640 621.54895 621.65284 -0.13228   -0.02552   0.00099   -0.00169  0.00000 0 10"	
 		max_markers	="2"
 		sort    = "no"
-       	marker_size = "0 57 60; 1000 2000 25"
+        marker_size = "0 57 60; 1000 2000 25"
        	use_history = "no"
         threshold = "auto"
         frame_id = "3"
         period ="5"
 	/>
-    
+
+
     <module
     class="DecisionModule"
     name = "DecisionModule"

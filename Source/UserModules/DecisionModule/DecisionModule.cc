@@ -121,9 +121,14 @@ DecisionModule::Tick()
         output[0][0] = 4;
         i = 2;
         nextId = 0;
-    }else if (id == 156){
-        //error
+    }else if (id == 156000){
+        //Boored
         output[0][0] = 5;
+        i = 2;
+        nextId = 0;
+    }else if (id == 156){
+        //Sad
+        output[0][0] = 6;
         i = 2;
         nextId = 0;
     }

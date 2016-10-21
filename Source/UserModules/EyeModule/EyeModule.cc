@@ -211,6 +211,13 @@ EyeModule::Tick()
             outputGREEN[0][k] = 0.25;
             outputBLUE[0][k] = 0.25;
         }
+    }else if(input_pattern_array[0] == 6){
+        //Sad
+        for(int k = 0; k < outputsize_x; k++ ){
+            outputRED[0][k] = 0;
+            outputGREEN[0][k] = 0;
+            outputBLUE[0][k] = 0.3;
+        }
     }
     
     if(input_pattern_array[0] != 4){

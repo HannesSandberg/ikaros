@@ -37,6 +37,8 @@ public:
     int         outputsize_y;
     int         i;
     int         j;
+    int         startTick;
+    int         nextId;
     
     float **    input_marker_matrix;
     int         input_marker_matrix_size_x;

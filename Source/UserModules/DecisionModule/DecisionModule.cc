@@ -68,8 +68,10 @@ DecisionModule::Init()
     outputsize_x	=	GetOutputSizeX("OUTPUT");
     outputsize_y	=	GetOutputSizeY("OUTPUT");
     prev_output     =   GetOutputMatrix("OUTPUT");
-    i = 0;
-    j = -3;
+    i               = 0;
+    j               = -3;
+    startTick       = 0;
+    nextId          = 0;
     
     Bind(data, outputsize_x, outputsize_y, "data");
     
@@ -84,34 +86,54 @@ DecisionModule::Init()
 void
 DecisionModule::Tick()
 {
-    
+
     
 
     int id = input_marker_matrix[0][16];
     
-    if(id == 1502){
+    if(nextId != 0 && id == 0){
+        id = nextId;
+    }
+    
+    if(startTick < 5 && id != 0){
+        output[0][0] = 10;
+        startTick++;
+        i = 2;
+        nextId = id;
+    }else if(id == 1502){
         //Angry
         output[0][0] = 2;
         i = 2;
+        nextId = 0;
     }else if(id == 1503){
         //Happy
         output[0][0] = 3;
         i = 2;
+        nextId = 0;
     }else if(id == 1505){
         //Loading
         output[0][0] = 1;
         i = 2;
+        nextId = 0;
     }else if (id == 1504){
+        //error
         output[0][0] = 4;
         i = 2;
+        nextId = 0;
+    }else if (id == 1501){
+        //error
+        output[0][0] = 5;
+        i = 2;
+        nextId = 0;
     }
-
-    if(i % 100 == 1){
+    
+    if(i % 105 == 1){
         if(id == 0){
             output[0][0] = 0;
+            startTick = 0;
         }
     }
-
+    
     i++;
      
 }

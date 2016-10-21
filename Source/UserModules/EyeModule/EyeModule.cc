@@ -178,6 +178,13 @@ EyeModule::Tick()
                 outputGREEN[0][k] = 0.5;
                 outputBLUE[0][k] = 0.5;
             }
+            for(int k = 0; k < outputsize_x; k++ ){
+                for(int k = 0; k < outputsize_x; k++ ){
+                    for(int f = 0; f < outputsize_y; f++ ){
+                        output[f][k] = 0;
+                    }
+                }
+            }
         }
         if(errorTick == 50 || errorTick == 51 || errorTick == 52 || errorTick == 70 || errorTick == 71 || errorTick == 72|| errorTick == 90 || errorTick == 91 || errorTick == 92){
 //        if(errorTick > 50 && (errorTick%20 == 1 && errorTick != 61)){
@@ -197,10 +204,27 @@ EyeModule::Tick()
 //        }
         blinkTick = 4;
         errorTick++;
+    }else if (input_pattern_array[0] == 5){
+        //bored
+        for(int k = 0; k < outputsize_x; k++ ){
+            outputRED[0][k] = 0.25;
+            outputGREEN[0][k] = 0.25;
+            outputBLUE[0][k] = 0.25;
+        }
     }
     
     if(input_pattern_array[0] != 4){
         errorTick = 0;
+    }
+    
+    if(input_pattern_array[0] != 4 && input_pattern_array[0] != 1){
+        for(int k = 0; k < outputsize_x; k++ ){
+            for(int k = 0; k < outputsize_x; k++ ){
+                for(int f = 0; f < outputsize_y; f++ ){
+                    output[f][k] = 0;
+                }
+            }
+        }
     }
     float random = ikaros::random(0.8, 1.2);
     //Blink

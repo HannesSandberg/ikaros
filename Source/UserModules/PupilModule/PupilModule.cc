@@ -91,7 +91,11 @@ PupilModule::Tick()
     
     // min värdern
     
-    
+    if(input_pattern_array[0] == 10){
+        //Before normal pattern
+        output[0][0] = 200;
+        output[0][1] = 200;
+    }
    
     
     
@@ -111,9 +115,15 @@ PupilModule::Tick()
         output[0][1] = 250;
     }else if(input_pattern_array[0] == 3){
         //Happy
-                output[0][0] = 190;
-                output[0][1] = 190;
+        output[0][0] = 190;
+        output[0][1] = 190;
         
+    }else if(input_pattern_array[0] == 4){
+        output[0][0] = 220;
+        output[0][1] = 220;
+    }else if(input_pattern_array[0] == 5){
+        output[0][0] = 220;
+        output[0][1] = 220;
     }
 
     

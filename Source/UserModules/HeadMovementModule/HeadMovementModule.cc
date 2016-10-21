@@ -136,8 +136,39 @@ HeadMovementModule::Tick()
     }
     i++;
     j++;
+    }else if(input_pattern_array[0] == 5){
+        if(j<40 && output[0][0] > 160){
+            output[0][0] = output[0][0] - 2;
+        }
+        if(j>40 && j < 50){
+            output[0][0] = output[0][0]+2;
+        }
+        
+        if(i>50 && i < 55)
+        {
+            output[0][0] = 180;
+            //output[0][1]= 700;
+            
+            output[0][1] = 220;
+            
+        }else if(i>55 && i< 63){
+            output[0][1] = 140;
+            //output[0][1]= -500 ;
+            //        output[0][1] = 250;
+            
+        } else{
+            if(i>63){
+                i=45;
+            }
+            output[0][1] = 180;
+            
+            //        }
+            
+        }
+        i++;
+        j++;
     }
-if(input_pattern_array[0] != 4){
+if(input_pattern_array[0] != 4 && input_pattern_array[0] != 5){
     i=0;
     j=0;
 }

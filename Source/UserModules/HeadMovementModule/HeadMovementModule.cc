@@ -89,7 +89,10 @@ HeadMovementModule::Tick()
 {
     if(input_pattern_array[0] == 0){
         //Nothing (standard white eyes
-        
+        output[0][0] = 180;
+        output[0][1] = 180;
+        output[0][2] = 180;
+        output[0][3] = 180;
         
     }else if(input_pattern_array[0] == 1){
         //Loading
@@ -100,12 +103,20 @@ HeadMovementModule::Tick()
        
     }else if(input_pattern_array[0] == 2){
         //Angry
+        output[0][0] = 180;
+        output[0][1] = 180;
+        output[0][2] = 180;
+        output[0][3] = 180;
        
     }else if(input_pattern_array[0] == 3){
         //Happy
-        
+        output[0][0] = 180;
+        output[0][1] = 180;
+        output[0][2] = 180;
+        output[0][3] = 180;
         
     }else if(input_pattern_array[0] == 4){
+        //Don't understand / wrong imput
         if(j<40 && output[0][0] > 160){
            output[0][0] = output[0][0] - 2;
         }
@@ -137,34 +148,26 @@ HeadMovementModule::Tick()
     i++;
     j++;
     }else if(input_pattern_array[0] == 5){
+        //bored
         if(j<40 && output[0][0] > 160){
-            output[0][0] = output[0][0] - 2;
+            output[0][0] = output[0][1] - 2;
         }
-        if(j>40 && j < 50){
-            output[0][0] = output[0][0]+2;
+        if(j>20 && j < 90){
+            output[0][2] = output[0][2] +1;
+            output[0][1] = output[0][1] +1;
         }
         
-        if(i>50 && i < 55)
+        if(j>90 && j < 160)
         {
-            output[0][0] = 180;
-            //output[0][1]= 700;
-            
-            output[0][1] = 220;
-            
-        }else if(i>55 && i< 63){
-            output[0][1] = 140;
-            //output[0][1]= -500 ;
-            //        output[0][1] = 250;
-            
-        } else{
-            if(i>63){
-                i=45;
-            }
-            output[0][1] = 180;
-            
-            //        }
+            output[0][2] = output[0][2] -1;
+            output[0][1] = output[0][1] -1;
             
         }
+        if(joutput[0][0] > 200){
+            output[0][0] = output[0][1] - 2;
+        }
+        
+        
         i++;
         j++;
     }

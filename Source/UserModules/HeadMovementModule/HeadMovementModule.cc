@@ -94,6 +94,7 @@ HeadMovementModule::Tick()
         output[0][2] = 180;
         output[0][3] = 180;
         
+        
     }else if(input_pattern_array[0] == 1){
         //Loading
         // Copy every iteration if parameter changed through the binding
@@ -149,22 +150,42 @@ HeadMovementModule::Tick()
     j++;
     }else if(input_pattern_array[0] == 5){
         //bored
-        if(j<40 && output[0][0] > 160){
-            output[0][0] = output[0][1] - 2;
-        }
-        if(j>20 && j < 90){
-            output[0][2] = output[0][2] +1;
-            output[0][1] = output[0][1] +1;
-        }
-        
-        if(j>90 && j < 160)
-        {
-            output[0][2] = output[0][2] -1;
-            output[0][1] = output[0][1] -1;
+        if(j<15){
+            output[0][2] = output[0][2] +4;
+            output[0][3] = output[0][3] +4;
             
         }
-        if(joutput[0][0] > 200){
-            output[0][0] = output[0][1] - 2;
+        if(j > 15 && j < 30){
+            output[0][2] = output[0][2] -4;
+            output[0][3] = output[0][3] -4;
+            
+        }
+        if(j>30&&j<40){
+            output[0][2] = 180;
+            output[0][3] = 180;
+        }
+        if(j>40 && j < 60){
+            output[0][2] = output[0][2] -2;
+            output[0][3] = output[0][3] -2;
+            output[0][1] = output[0][1] - 4;
+        }
+        
+        if(j>60 && j < 80)
+        {
+            output[0][2] = output[0][2] +4;
+            output[0][3] = output[0][3] +4;
+            
+        }
+        if(j > 80){
+            output[0][1] = output[0][1] + 2;
+            output[0][2] = output[0][2] -4;
+            output[0][3] = output[0][3] -4;
+            
+            if(output[0][2]<=180){
+                output[0][2]=180;
+                output[0][3]=180;
+                
+            }
         }
         
         

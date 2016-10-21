@@ -90,6 +90,7 @@ DecisionModule::Tick()
     
 
     int id = input_marker_matrix[0][16];
+    id = id/10;
     
     if(nextId != 0 && id == 0){
         id = nextId;
@@ -100,27 +101,27 @@ DecisionModule::Tick()
         startTick++;
         i = 2;
         nextId = id;
-    }else if(id == 1502){
+    }else if(id == 150){
         //Angry
         output[0][0] = 2;
         i = 2;
         nextId = 0;
-    }else if(id == 1503){
+    }else if(id == 122){
         //Happy
         output[0][0] = 3;
         i = 2;
         nextId = 0;
-    }else if(id == 1505){
+    }else if(id == 196){
         //Loading
         output[0][0] = 1;
         i = 2;
         nextId = 0;
-    }else if (id == 1504){
+    }else if (id == 102){
         //error
         output[0][0] = 4;
         i = 2;
         nextId = 0;
-    }else if (id == 1501){
+    }else if (id == 156){
         //error
         output[0][0] = 5;
         i = 2;

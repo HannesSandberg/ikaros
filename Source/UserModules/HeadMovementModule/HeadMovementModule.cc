@@ -191,8 +191,21 @@ HeadMovementModule::Tick()
         
         i++;
         j++;
+    } else if(input_pattern_array[0] == 6){
+        //Sad
+        if(i < 20){
+            output[0][2]= output[0][2] +3;
+            output[0][3]= output[0][3] -3;
+        }else if(i < 80 && i> 20){
+            if(output[0][0] < 200){
+            output[0][0]= output[0][0] +1;
+            }
+            output[0][1]= output[0][1] +0.5;
+        }
+        i++;
+        
     }
-if(input_pattern_array[0] != 4 && input_pattern_array[0] != 5){
+if(input_pattern_array[0] != 4 && input_pattern_array[0] != 5 && input_pattern_array[0] != 6){
     i=0;
     j=0;
 }

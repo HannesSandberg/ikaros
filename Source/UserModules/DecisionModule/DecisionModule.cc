@@ -112,17 +112,17 @@ DecisionModule::Tick()
         i = 2;
         nextId = 0;
     }else if(id == 196){
-        //Loading
+        //Thinking
         output[0][0] = 1;
         i = 2;
         nextId = 0;
     }else if (id == 102){
-        //error
+        //Confused
         output[0][0] = 4;
         i = 2;
         nextId = 0;
     }else if (id == 199){
-        //Boored
+        //Indiferent
         output[0][0] = 5;
         i = 2;
         nextId = 0;

@@ -37,14 +37,18 @@ public:
     int         outputsize_y;
     int         i;
     int         j;
+    float       startingTime;
     float *     input_pattern_array;
     int         input_pattern_array_size;
+    Timer       *timer;
+    bool        running;
     
     HeadMovementModule(Parameter * p) : Module(p) {}
     virtual	~HeadMovementModule() {}
     
     void            SetSizes();
-    
+    float           GetTimeDiff();
+    void            InitStartTime();
     void			Init();
     void			Tick();};
 

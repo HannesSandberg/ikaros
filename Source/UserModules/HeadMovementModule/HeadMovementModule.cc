@@ -192,7 +192,7 @@ HeadMovementModule::Tick()
         i++;
         j++;
     } else if(input_pattern_array[0] == 6){
-        //Sad
+        //Sad robot is sad
         if(i < 20){
             output[0][2]= output[0][2] +3;
             output[0][3]= output[0][3] -3;

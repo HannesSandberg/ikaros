@@ -2,6 +2,7 @@
 
 <group title="Epi Head">
 
+<!--TODO:Gör så att Happy också tittar upp, Så att förvirrad bara snurrar allt i olika riktningar, kombinera arg med att skaka på huvudet, indifrent väntar vi med, loading bara titta rakt fram tills vidigare  -->
 
     <module class="HeadMovementModule" name="NeckEye" data = "180 180 180 180" />
         <connection sourcemodule = "NeckEye" source = "OUTPUT" targetmodule = "GuardNeckEyes" target = "INPUT" delay = "0" />

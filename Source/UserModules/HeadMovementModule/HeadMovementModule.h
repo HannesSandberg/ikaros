@@ -38,6 +38,8 @@ public:
     int         i;
     int         j;
     float       startingTime;
+    float       tickTime;
+    float       prevTickTime;
     float *     input_pattern_array;
     int         input_pattern_array_size;
     Timer       *timer;
@@ -50,6 +52,8 @@ public:
     float           GetTimeDiff();
     void            InitStartTime();
     void			Init();
+    float           MoveTo(float,float,float);
+    void            UpdateTickTime();
     void			Tick();};
 
 #endif

@@ -77,8 +77,8 @@ HeadMovementModule::Init()
     running = false;
     input_pattern_array = GetInputArray("INPUTPATTERN");
     input_pattern_array_size = GetInputSize("INPUTPATTERN");
-    
-    
+    tickTime = 0;
+    prevTickTime = timer -> GetTime();
     Bind(data, outputsize_x, outputsize_y, "data");
 }
 
@@ -89,8 +89,11 @@ HeadMovementModule::Init()
 void
 HeadMovementModule::Tick()
 {
-       printf("%.1f", GetTimeDiff());
+     UpdateTickTime();
     
+    
+      
+   
     
     if(input_pattern_array[0] == 0){
         //Nothing (standard white eyes
@@ -118,22 +121,19 @@ HeadMovementModule::Tick()
             running = true;
         }
         // TODO: fixa så den kör mili secunder istället
-        if((GetTimeDiff())<0.5){
-            
-            
-            output[0][1] = 220;
-            
-            
-        }else if(GetTimeDiff()>0.5 && GetTimeDiff()<1.3){
+        if(GetTimeDiff()<0.5){
             output[0][1] = 140;
-            //output[0][1]= -500 ;
-            //        output[0][1] = 250;
+            //output[0][1]= output[0][1]+MoveTo(output[0][1],140,0.5-GetTimeDiff());
             
+        }else if(GetTimeDiff()<1 && GetTimeDiff()>0.5){
+           output[0][1]= 220;
+            //output[0][1]=output[0][1] + MoveTo(output[0][1],220,1-GetTimeDiff());
         
         }else{
-            if(GetTimeDiff()>1.5){
+            output[0][1] = 180;
+            if(GetTimeDiff()>1){
                 InitStartTime();
-                output[0][1] = 180;
+                
             }
             //output[0][1] = 180;
             
@@ -145,12 +145,22 @@ HeadMovementModule::Tick()
        
     }else if(input_pattern_array[0] == 3){
         //Happy
-        if(output[0][0] > 160){
-            output[0][0] = output[0][0] - 2;
+        if(!running){
+            InitStartTime();
+            running = true;
         }
-        output[0][1] = 180;
-        output[0][2] = 180;
-        output[0][3] = 180;
+        if(GetTimeDiff()<2){
+        output[0][0] = output[0][0] + MoveTo(output[0][0],165,2-GetTimeDiff());
+        }
+        output[0][2]= 183;
+        output[0][3]= 177;
+        
+        
+//        if(output[0][0] > 160){
+//            output[0][0] = output[0][0] - 2;
+//        }
+        
+        
         
     }else if(input_pattern_array[0] == 4){
         //Don't understand / wrong imput
@@ -242,6 +252,7 @@ HeadMovementModule::Tick()
         
     }else{
         running = false;
+        InitStartTime();
     }
 if(input_pattern_array[0] != 4 && input_pattern_array[0] != 5 && input_pattern_array[0] != 6 && input_pattern_array[0] != 2){
     i=0;
@@ -338,6 +349,21 @@ void
 HeadMovementModule::InitStartTime()
 {
     startingTime = timer->GetTime();
+}
+float
+HeadMovementModule::MoveTo(float current,float goal, float timeLeft)
+{
+    float ticks = timeLeft/tickTime;
+    float movementLeft = goal - current;
+    printf("%.1f",(movementLeft));
+    return movementLeft/ticks;
+}
+void
+HeadMovementModule::UpdateTickTime()
+{
+    tickTime = ((timer->GetTime())-(prevTickTime))/1000;
+    prevTickTime = timer ->GetTime();
+            
 }
 
 

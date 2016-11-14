@@ -137,9 +137,9 @@ HeadMovementModule::Tick()
             }
             //output[0][1] = 180;
             
-                  }
+            
         
-        
+        }
         i++;
         j++;
        
@@ -163,92 +163,129 @@ HeadMovementModule::Tick()
         
         
     }else if(input_pattern_array[0] == 4){
+        output[0][3]= 190;
+        output[0][2]= 170;
         //Don't understand / wrong imput
-        if(j<40 && output[0][0] > 160){
-           output[0][0] = output[0][0] - 2;
-        }
-        if(j>40 && j < 50){
-            output[0][0] = output[0][0]+2;
+        if(!running){
+            InitStartTime();
+            running = true;
         }
         
-    if(i>50 && i < 55)
-    {
-        output[0][0] = 180;
-        //output[0][1]= 700;
+        if(GetTimeDiff()<0.5){
+            output[0][0]= 210;
+            output[0][1]= 210;
+        }else if(GetTimeDiff()>0.5 && GetTimeDiff()<1){
+            output[0][0]= 150;
+            output[0][1]= 210;
+        }else if(GetTimeDiff()>1 && GetTimeDiff()<1.5){
+            output[0][0]= 150;
+            output[0][1]= 150;
+        }else if(GetTimeDiff()>1.5 &&GetTimeDiff()<2){
+            output[0][0]= 210;
+            output[0][1]= 150;
         
-        output[0][1] = 220;
-        
-    }else if(i>55 && i< 63){
-        output[0][1] = 140;
-        //output[0][1]= -500 ;
-        //        output[0][1] = 250;
-        
-    } else{
-        if(i>63){
-            i=45;
-        }
-        output[0][1] = 180;
-        
-        //        }
-        
-    }
-    i++;
-    j++;
+        }else{
+            InitStartTime();
+            
+//            output[0][1]= 180;
+            }
+//        if(j<40 && output[0][0] > 160){
+//           output[0][0] = output[0][0] - 2;
+//        }
+//        if(j>40 && j < 50){
+//            output[0][0] = output[0][0]+2;
+//        }
+//        
+//    if(i>50 && i < 55)
+//    {
+//        output[0][0] = 180;
+//        //output[0][1]= 700;
+//        
+//        output[0][1] = 220;
+//        
+//    }else if(i>55 && i< 63){
+//        output[0][1] = 140;
+//        //output[0][1]= -500 ;
+//        //        output[0][1] = 250;
+//        
+//    } else{
+//        if(i>63){
+//            i=45;
+//        }
+//        output[0][1] = 180;
+//        
+//        //        }
+//        
+//    }
+//    i++;
+//    j++;
     }else if(input_pattern_array[0] == 5){
         //bored
-        if(j<15){
-            output[0][2] = output[0][2] +4;
-            output[0][3] = output[0][3] +4;
-            
-        }
-        if(j > 15 && j < 30){
-            output[0][2] = output[0][2] -4;
-            output[0][3] = output[0][3] -4;
-            
-        }
-        if(j>30&&j<40){
-            output[0][2] = 180;
-            output[0][3] = 180;
-        }
-        if(j>40 && j < 60){
-            output[0][2] = output[0][2] -2;
-            output[0][3] = output[0][3] -2;
-            output[0][1] = output[0][1] - 4;
-        }
+//        if(j<15){
+//            output[0][2] = output[0][2] +4;
+//            output[0][3] = output[0][3] +4;
+//            
+//        }
+//        if(j > 15 && j < 30){
+//            output[0][2] = output[0][2] -4;
+//            output[0][3] = output[0][3] -4;
+//            
+//        }
+//        if(j>30&&j<40){
+//            output[0][2] = 180;
+//            output[0][3] = 180;
+//        }
+//        if(j>40 && j < 60){
+//            output[0][2] = output[0][2] -2;
+//            output[0][3] = output[0][3] -2;
+//            output[0][1] = output[0][1] - 4;
+//        }
+//        
+//        if(j>60 && j < 80)
+//        {
+//            output[0][2] = output[0][2] +4;
+//            output[0][3] = output[0][3] +4;
+//            
+//        }
+//        if(j > 80){
+//            output[0][1] = output[0][1] + 2;
+//            output[0][2] = output[0][2] -4;
+//            output[0][3] = output[0][3] -4;
+//            
+//            if(output[0][2]<=180){
+//                output[0][2]=180;
+//                output[0][3]=180;
+//                
+//            }
         
-        if(j>60 && j < 80)
-        {
-            output[0][2] = output[0][2] +4;
-            output[0][3] = output[0][3] +4;
-            
-        }
-        if(j > 80){
-            output[0][1] = output[0][1] + 2;
-            output[0][2] = output[0][2] -4;
-            output[0][3] = output[0][3] -4;
-            
-            if(output[0][2]<=180){
-                output[0][2]=180;
-                output[0][3]=180;
-                
-            }
-        }
         
         
         i++;
         j++;
     } else if(input_pattern_array[0] == 6){
         //Sad robot is sad
-        if(i < 20){
-            output[0][2]= output[0][2] +3;
-            output[0][3]= output[0][3] -3;
-        }else if(i < 80 && i> 20){
-            if(output[0][0] < 200){
-            output[0][0]= output[0][0] +1;
-            }
-            output[0][1]= output[0][1] +0.5;
+        //TODO: fixa till sekunder
+        if(!running){
+            InitStartTime();
+            running = true;
         }
-        i++;
+        output[0][2] = output[0][2] + MoveTo(output[0][2], 200, 1-GetTimeDiff());
+        output[0][3] = output[0][3] + MoveTo(output[0][3], 160, 1-GetTimeDiff());
+        
+        output[0][0] = output[0][0] + MoveTo(output[0][0], 210, 2-GetTimeDiff());
+        output[0][1] = output[0][1] + MoveTo(output[0][1], 220, 3-GetTimeDiff());
+        
+        
+//        if(i < 20){
+//            output[0][2]= output[0][2] +3;
+//            output[0][3]= output[0][3] -3;
+//        }else if(i < 80 && i> 20){
+//            if(output[0][0] < 200){
+//            output[0][0]= output[0][0] +1;
+//            }
+//            output[0][1]= output[0][1] +0.5;
+//        }
+//        i++;
         
     }else{
         running = false;

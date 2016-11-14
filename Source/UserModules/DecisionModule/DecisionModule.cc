@@ -148,9 +148,10 @@ DecisionModule::Tick()
     
     if(inputFromTerminal != 0){
         output[0][0] = inputFromTerminal;
+        if(startingTime == 0){
+            startingTime = timer->GetTime();
+        }
     }
-//    i++;
-    
 }
 
 void

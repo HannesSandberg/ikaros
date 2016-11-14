@@ -26,8 +26,8 @@
 
 #include "DecisionModule.h"
 #include "iostream"
-//#include "thread"
 #include "pthread.h"
+#include "unistd.h"
 // use the ikaros namespace to access the math library
 // this is preferred to using <cmath>
 
@@ -148,9 +148,11 @@ DecisionModule::Tick()
     
     if(inputFromTerminal != 0){
         output[0][0] = inputFromTerminal;
-        if(startingTime == 0){
-            startingTime = timer->GetTime();
-        }
+    }else{
+        output[0][0] = 0;
+        startingTime = 0;
+        id = 0;
+        nextId = 0;
     }
 }
 
@@ -161,12 +163,7 @@ void
     while(true){
         cout << "Please enter an integer value for different mental states, 1: Thinking, 2: Angry, 3: Happy, 4: Confused 5: Indiferent, 6: Sad : ";
         cin >> inputFromTerminal;
-        Timer *timer = new Timer();
-        float startTime = timer->GetTime();
-//        cout << "Output from terminal: " + std::to_string(inputFromTerminal);
-        while((timer->GetTime() - startTime)/1000 < 10){
-            //wait
-        }
+        sleep(10);
         inputFromTerminal = 0;
     }
 //    pthread_exit(NULL);

@@ -25,8 +25,8 @@
 
 #include "IKAROS.h"
 #include "iostream"
-//#include "thread"
 #include "pthread.h"
+#include "unistd.h"
 
 class DecisionModule: public Module
 {

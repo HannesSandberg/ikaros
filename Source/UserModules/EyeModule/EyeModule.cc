@@ -90,6 +90,8 @@ EyeModule::Init()
     input_pattern_array_size = GetInputSize("INPUTPATTERN");
     
     blinkTick       = 0;
+    timer = new Timer();
+    blinkTime = 0;
 }
 
 
@@ -128,7 +130,8 @@ EyeModule::Tick()
                 }
             }
         }
-        blinkTick = 4;
+//        blinkTick = 4;
+        blinkTime = timer->GetTime();
     }else if(input_pattern_array[0] == 2){
         //Angry
         for(int k = 0; k < outputsize_x; k++ ){
@@ -136,12 +139,6 @@ EyeModule::Tick()
             outputGREEN[0][k] = 0;
             outputBLUE[0][k] = 0;
         }
-//        for(int a = 7; a <= 10; a++){
-//            outputRED[0][a] = 0;
-//        }
-//        for(int a = 1; a <= 4; a++){
-//            outputRED[0][a] = 0;
-//        }
     }else if(input_pattern_array[0] == 3){
         //Happy
         for(int k = 0; k < outputsize_x; k++ ){
@@ -187,22 +184,14 @@ EyeModule::Tick()
             }
         }
         if(errorTick == 50 || errorTick == 51 || errorTick == 52 || errorTick == 70 || errorTick == 71 || errorTick == 72|| errorTick == 90 || errorTick == 91 || errorTick == 92){
-//        if(errorTick > 50 && (errorTick%20 == 1 && errorTick != 61)){
-//        if(errorTick > 50 && errorTick%5 == 1 && errorTick != 56){
             for(int k = 0; k < outputsize_x; k++ ){
                 outputRED[0][k] = 1;
                 outputGREEN[0][k] = 0;
                 outputBLUE[0][k] = 0;
             }
         }
-//        else if (errorTick > 70 && (errorTick%10 == 1  || errorTick%10 == 2)){
-//            for(int k = 0; k < outputsize_x; k++ ){
-//                outputRED[0][k] = 1;
-//                outputGREEN[0][k] = 0;
-//                outputBLUE[0][k] = 0;
-//            }
-//        }
-        blinkTick = 4;
+//        blinkTick = 4;
+        blinkTime = timer->GetTime();
         errorTick++;
     }else if (input_pattern_array[0] == 5){
         //bored
@@ -235,8 +224,13 @@ EyeModule::Tick()
     }
     float random = ikaros::random(0.8, 1.2);
     //Blink
-    if(blinkTick >= 70 * random){
+//    if(blinkTick >= 70 * random){
+//        blinkTick = 0;
+//        random = ikaros::random(0.8, 1.2);
+//    }
+    if(blinkTime - timer->GetTime() >= 3529 * random){
         blinkTick = 0;
+        blinkTime = timer->GetTime();
         random = ikaros::random(0.8, 1.2);
     }
     Blink();

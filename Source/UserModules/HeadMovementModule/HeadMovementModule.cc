@@ -62,17 +62,19 @@ HeadMovementModule::SetSizes() // Infer output size from data if none is given
 void
 HeadMovementModule::Init()
 {
-    
+    timer = new Timer();
     output          =	GetOutputMatrix("OUTPUT");
     outputsize_x	=	GetOutputSizeX("OUTPUT");
     outputsize_y	=	GetOutputSizeY("OUTPUT");
     prev_output = GetOutputMatrix("OUTPUT");
     i = 0;
     j = 0;
+    startingTime = 0;
     output[0][0] = 180;
     output[0][1] = 180;
     output[0][2] = 180;
     output[0][3] = 180;
+    running = false;
     input_pattern_array = GetInputArray("INPUTPATTERN");
     input_pattern_array_size = GetInputSize("INPUTPATTERN");
     
@@ -87,6 +89,9 @@ HeadMovementModule::Init()
 void
 HeadMovementModule::Tick()
 {
+       printf("%.1f", GetTimeDiff());
+    
+    
     if(input_pattern_array[0] == 0){
         //Nothing (standard white eyes
         output[0][0] = 180;
@@ -105,13 +110,44 @@ HeadMovementModule::Tick()
     }else if(input_pattern_array[0] == 2){
         //Angry
         output[0][0] = 180;
-        output[0][1] = 180;
         output[0][2] = 180;
         output[0][3] = 180;
+        output[0][1] = 180;
+        if(!running){
+        InitStartTime();
+            running = true;
+        }
+        // TODO: fixa så den kör mili secunder istället
+        if((GetTimeDiff())<0.5){
+            
+            
+            output[0][1] = 220;
+            
+            
+        }else if(GetTimeDiff()>0.5 && GetTimeDiff()<1.3){
+            output[0][1] = 140;
+            //output[0][1]= -500 ;
+            //        output[0][1] = 250;
+            
+        
+        }else{
+            if(GetTimeDiff()>1.5){
+                InitStartTime();
+                output[0][1] = 180;
+            }
+            //output[0][1] = 180;
+            
+                  }
+        
+        
+        i++;
+        j++;
        
     }else if(input_pattern_array[0] == 3){
         //Happy
-        output[0][0] = 180;
+        if(output[0][0] > 160){
+            output[0][0] = output[0][0] - 2;
+        }
         output[0][1] = 180;
         output[0][2] = 180;
         output[0][3] = 180;
@@ -204,11 +240,14 @@ HeadMovementModule::Tick()
         }
         i++;
         
+    }else{
+        running = false;
     }
-if(input_pattern_array[0] != 4 && input_pattern_array[0] != 5 && input_pattern_array[0] != 6){
+if(input_pattern_array[0] != 4 && input_pattern_array[0] != 5 && input_pattern_array[0] != 6 && input_pattern_array[0] != 2){
     i=0;
     j=0;
 }
+    
 
     
     
@@ -288,6 +327,20 @@ if(input_pattern_array[0] != 4 && input_pattern_array[0] != 5 && input_pattern_a
     
     
 }
+
+float
+HeadMovementModule::GetTimeDiff()
+{
+    return (((timer->GetTime())-startingTime)/1000);
+}
+
+void
+HeadMovementModule::InitStartTime()
+{
+    startingTime = timer->GetTime();
+}
+
+
 
 
 

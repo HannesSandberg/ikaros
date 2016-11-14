@@ -24,6 +24,9 @@
 #define DecisionModule_
 
 #include "IKAROS.h"
+#include "iostream"
+//#include "thread"
+#include "pthread.h"
 
 class DecisionModule: public Module
 {
@@ -35,10 +38,9 @@ public:
     float **	prev_output;
     int         outputsize_x;
     int         outputsize_y;
-    int         i;
-    int         j;
-    int         startTick;
     int         nextId;
+    Timer *timer;
+    float       startingTime;
     
     float **    input_marker_matrix;
     int         input_marker_matrix_size_x;
@@ -51,6 +53,9 @@ public:
     
     void			Init();
     void			Tick();
+    static void        *InputTerminal(void *);
+    pthread_t   thread;
+//    int         inputFromTerminal;
 };
 
 #endif

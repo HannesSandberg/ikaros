@@ -1,5 +1,5 @@
 //
-//	EyeModule.h		This file is a part of the IKAROS project
+//	MouthModule.h		This file is a part of the IKAROS project
 //
 //    Copyright (C) 2012 <Author Name>
 //
@@ -20,47 +20,43 @@
 //    See http://www.ikaros-project.org/ for more information.
 //
 
-#ifndef EyeModule_
-#define EyeModule_
+#ifndef MouthModule_
+#define MouthModule_
 
 #include "IKAROS.h"
 
-class EyeModule: public Module
+class MouthModule: public Module
 {
 public:
-    static Module * Create(Parameter * p) { return new EyeModule(p); }
+    static Module * Create(Parameter * p) { return new MouthModule(p); }
     
     float **	data;
     float **	output;
-    float **	output2;
     float **	outputRED;
     float **	outputGREEN;
     float **	outputBLUE;
+    float **	outputRED2;
+    float **	outputGREEN2;
+    float **	outputBLUE2;
     float **	prev_output;
     int         outputsize_x;
     int         outputsize_y;
-    int         i;
-    int         j;
-    int         blinkTick;
-    int         errorTick;
     bool        blinkOn;
-    Timer       *timer;
-    float       blinkTime;
 
-    float *     input_color_array;
-    int         input_color_array_size;
+//    float *     input_color_array;
+//    int         input_color_array_size;
     
     float *     input_pattern_array;
     int         input_pattern_array_size;
     
-    EyeModule(Parameter * p) : Module(p) {}
-    virtual	~EyeModule() {}
+    MouthModule(Parameter * p) : Module(p) {}
+    virtual	~MouthModule() {}
     
     void            SetSizes();
     
     void			Init();
     void			Tick();
-    void            Blink();
+//    void            Blink();
 };
 
 #endif

@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+
+<group name="MouthModule" description="minimal example module">
+
+	<description type="text">
+		Module that can be used as a start for a new module.
+		Simply change all occurrences of "EyeModule" to the name of your new module in
+		EyeModule.cc, EyeModule.h and EyeModule.ikc (this file), rename the files, and fill
+		in the new code and documentation. This module is located in the
+		UserModules directory.
+	</description>
+
+	<example description="A simple example">
+		<module
+			class="MouthModule"
+			name="MouthModule"
+            outputsize = "4"
+            data = "1 2 3 4"
+		/>
+	</example>
+    <example description="Matrix example; WARNING: this does not currently work. ';' are necessary to ,ark end of row.">
+        <module
+        class="MouthModule"
+        name="MatrixEyeModule"
+        outputsize_x = "3"
+        outputsize_y = "3"
+        data = "1 2 3 2 3 4 3 4 5"
+        />
+    </example>
+    
+    <example description="Autosize example">
+        <module
+        class="MouthModule"
+        name="Matrix3x4"
+        data = "1 2 3; 2 3 4; 3 4 5; 4 5 6"
+        />
+    </example>
+    
+<!--    <input name="INPUTCOLOR" description="The input for which colors should be used" />-->
+    
+    <input name="INPUTPATTERN" description="The input for which pattern of leds to be used" />
+
+	<output name="OUTPUT" description="The output" size_param="outputsize" size_param_x="outputsize_x" size_param_y="outputsize_y" />
+
+    <output name="OUTPUTRED" description="The output for red" size_param="outputsize" size_param_x="outputsize_x" size_param_y="outputsize_y" />
+    
+    <output name="OUTPUTGREEN" description="The output for green" size_param="outputsize" size_param_x="outputsize_x" size_param_y="outputsize_y" />
+    
+    <output name="OUTPUTBLUE" description="The output for blue" size_param="outputsize" size_param_x="outputsize_x" size_param_y="outputsize_y" />
+    
+    <output name="OUTPUTRED2" description="The output for red" size_param="outputsize" size_param_x="outputsize_x" size_param_y="outputsize_y" />
+    
+    <output name="OUTPUTGREEN2" description="The output for green" size_param="outputsize" size_param_x="outputsize_x" size_param_y="outputsize_y" />
+    
+    <output name="OUTPUTBLUE2" description="The output for blue" size_param="outputsize" size_param_x="outputsize_x" size_param_y="outputsize_y" />
+    
+
+	<module class="MouthModule" />
+
+	<author>
+		<name>Christian Balkenius</name>
+		<email>christian.balkenius@lucs.lu.se</email>
+		<affiliation>Lund University Cognitive Science</affiliation>
+		<homepage>http://www.lucs.lu.se/Christian.Balkenius</homepage>
+	</author>
+
+   <files>
+   		<file>MouthModule.h</file>
+   		<file>MouthModule.cc</file>
+   		<file>MouthModule.ikc</file>
+   </files>
+
+</group>

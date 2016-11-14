@@ -25,13 +25,16 @@
 //
 
 #include "DecisionModule.h"
-
+#include "iostream"
+//#include "thread"
+#include "pthread.h"
 // use the ikaros namespace to access the math library
 // this is preferred to using <cmath>
 
 using namespace ikaros;
+using namespace std;
 
-
+int  inputFromTerminal = 0;
 void
 DecisionModule::SetSizes() // Infer output size from data if none is given
 {
@@ -68,9 +71,6 @@ DecisionModule::Init()
     outputsize_x	=	GetOutputSizeX("OUTPUT");
     outputsize_y	=	GetOutputSizeY("OUTPUT");
     prev_output     =   GetOutputMatrix("OUTPUT");
-    i               = 0;
-    j               = -3;
-    startTick       = 0;
     nextId          = 0;
     
     Bind(data, outputsize_x, outputsize_y, "data");
@@ -79,6 +79,9 @@ DecisionModule::Init()
     input_marker_matrix_size_x = GetInputSizeX("INPUTMARKERS");
     input_marker_matrix_size_y = GetInputSizeY("INPUTMARKERS");
     output[0][0] = 0;
+    timer = new Timer();
+    startingTime = 0;
+    inputFromTerminal = 0;
 }
 
 
@@ -86,9 +89,16 @@ DecisionModule::Init()
 void
 DecisionModule::Tick()
 {
+//    pthread_t t;
+    if(thread == NULL){
+        int rc;
+        rc = pthread_create(&thread, NULL, DecisionModule::InputTerminal, NULL);
+    }
+//    Thread * t;
+//    t = new Thread();
+//    t->Create(DecisionModule::InputTerminal, NULL);
 
     
-
     int id = input_marker_matrix[0][16];
     id = id/10;
     
@@ -96,54 +106,70 @@ DecisionModule::Tick()
         id = nextId;
     }
     
-    if(startTick < 5 && id != 0){
+    if(startingTime == 0 && id != 0){
+        startingTime = timer->GetTime();
+    }
+    
+    if(timer->GetTime() - startingTime < 250 && id != 0){
         output[0][0] = 10;
-        startTick++;
-        i = 2;
         nextId = id;
     }else if(id == 150){
         //Angry
         output[0][0] = 2;
-        i = 2;
         nextId = 0;
     }else if(id == 122){
         //Happy
         output[0][0] = 3;
-        i = 2;
         nextId = 0;
     }else if(id == 196){
         //Thinking
         output[0][0] = 1;
-        i = 2;
         nextId = 0;
     }else if (id == 102){
         //Confused
         output[0][0] = 4;
-        i = 2;
         nextId = 0;
     }else if (id == 199){
         //Indiferent
         output[0][0] = 5;
-        i = 2;
         nextId = 0;
     }else if (id == 156){
         //Sad
         output[0][0] = 6;
-        i = 2;
         nextId = 0;
     }
     
-    if(i % 105 == 1){
+    if((timer->GetTime() - startingTime)/1000 >= 10){
         if(id == 0){
             output[0][0] = 0;
-            startTick = 0;
+            startingTime = 0;
         }
     }
     
-    i++;
-     
+    if(inputFromTerminal != 0){
+        output[0][0] = inputFromTerminal;
+    }
+//    i++;
+    
 }
 
+void
+*DecisionModule::InputTerminal(void *)
+{
+//    int i;
+    while(true){
+        cout << "Please enter an integer value for different mental states, 1: Thinking, 2: Angry, 3: Happy, 4: Confused 5: Indiferent, 6: Sad : ";
+        cin >> inputFromTerminal;
+        Timer *timer = new Timer();
+        float startTime = timer->GetTime();
+//        cout << "Output from terminal: " + std::to_string(inputFromTerminal);
+        while((timer->GetTime() - startTime)/1000 < 10){
+            //wait
+        }
+        inputFromTerminal = 0;
+    }
+//    pthread_exit(NULL);
+}
 
 // Install the module. This code is executed during start-up.
 

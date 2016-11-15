@@ -101,7 +101,8 @@ HeadMovementModule::Tick()
         output[0][1] = 180;
         output[0][2] = 180;
         output[0][3] = 180;
-        
+        running = false;
+        InitStartTime();
         
     }else if(input_pattern_array[0] == 1){
         //Loading
@@ -269,12 +270,12 @@ HeadMovementModule::Tick()
             InitStartTime();
             running = true;
         }
+        if(GetTimeDiff()<7){
         output[0][2] = output[0][2] + MoveTo(output[0][2], 200, 1-GetTimeDiff());
         output[0][3] = output[0][3] + MoveTo(output[0][3], 160, 1-GetTimeDiff());
-        
-        output[0][0] = output[0][0] + MoveTo(output[0][0], 210, 2-GetTimeDiff());
-        output[0][1] = output[0][1] + MoveTo(output[0][1], 220, 3-GetTimeDiff());
-        
+        output[0][0] = output[0][0] + MoveTo(output[0][0], 200, 3-GetTimeDiff());
+        output[0][1] = output[0][1] + MoveTo(output[0][1], 210, 4-GetTimeDiff());
+        }
         
 //        if(i < 20){
 //            output[0][2]= output[0][2] +3;
@@ -390,10 +391,13 @@ HeadMovementModule::InitStartTime()
 float
 HeadMovementModule::MoveTo(float current,float goal, float timeLeft)
 {
+    if(timeLeft>0){
     float ticks = timeLeft/tickTime;
     float movementLeft = goal - current;
     printf("%.1f",(movementLeft));
     return movementLeft/ticks;
+    }
+    return 0;
 }
 void
 HeadMovementModule::UpdateTickTime()

@@ -6,6 +6,7 @@ add_subdirectory(EyeModule)
 add_subdirectory(PupilModule)
 add_subdirectory(HeadMovementModule)
 add_subdirectory(DecisionModule)
+add_subdirectory(MouthModule)
 
 
 

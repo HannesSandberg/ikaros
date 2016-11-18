@@ -107,9 +107,13 @@ HeadMovementModule::Tick()
     }else if(input_pattern_array[0] == 1){
         //Loading
         // Copy every iteration if parameter changed through the binding
-        if(output[0][0] > 160){
-            output[0][0] = output[0][0] - 2;
-        }
+//        if(output[0][0] > 160){
+//            output[0][0] = output[0][0] - 2;
+//        }
+        output[0][0] = 180;
+        output[0][1] = 180;
+        output[0][2] = 180;
+        output[0][3] = 180;
        
     }else if(input_pattern_array[0] == 2){
         //Angry

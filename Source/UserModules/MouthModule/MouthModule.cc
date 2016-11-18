@@ -97,53 +97,60 @@ MouthModule::Init()
 void
 MouthModule::Tick()
 {
-    
-    if(input_pattern_array[0] == 0){
-        //Standard
-        for(int k = 0; k < outputsize_x; k++ ){
-            outputRED[0][k] = 0.5;
-            outputGREEN[0][k] = 0.5;
-            outputBLUE[0][k] = 0.5;
-            outputRED2[0][k] = 0.5;
-            outputGREEN2[0][k] = 0.5;
-            outputBLUE2[0][k] = 0.5;
-        }
-    }else if(input_pattern_array[0] == 1){
-        //Loading
-
-    }else if(input_pattern_array[0] == 2){
-        //Angry
-        for(int k = 0; k < outputsize_x; k++ ){
-            outputRED[0][k] = 0.5;
-            outputRED2[0][k] = 0.5;
-        }
-    }else if(input_pattern_array[0] == 3){
-        //Happy
-
-    }else if(input_pattern_array[0] == 4){
-        //Dont understand
-
-    }else if (input_pattern_array[0] == 5){
-        //bored
-
-    }else if(input_pattern_array[0] == 6){
-        //Sad
-
+    for(int k = 0; k < outputsize_x; k++ ){
+        outputRED[0][k] = 0;
+        outputGREEN[0][k] = 1;
+        outputBLUE[0][k] = 1;
+        outputRED2[0][k] = 0;
+        outputGREEN2[0][k] = 1;
+        outputBLUE2[0][k] = 1;
     }
-    
-    if(input_pattern_array[0] != 4){
-//        errorTick = 0;
-    }
-    
-    if(input_pattern_array[0] != 4 && input_pattern_array[0] != 1){
-        for(int k = 0; k < outputsize_x; k++ ){
-            for(int k = 0; k < outputsize_x; k++ ){
-                for(int f = 0; f < outputsize_y; f++ ){
-                    output[f][k] = 0;
-                }
-            }
-        }
-    }
+//    if(input_pattern_array[0] == 0){
+//        //Standard
+//        for(int k = 0; k < outputsize_x; k++ ){
+//            outputRED[0][k] = 0.5;
+//            outputGREEN[0][k] = 0.5;
+//            outputBLUE[0][k] = 0.5;
+//            outputRED2[0][k] = 0.5;
+//            outputGREEN2[0][k] = 0.5;
+//            outputBLUE2[0][k] = 0.5;
+//        }
+//    }else if(input_pattern_array[0] == 1){
+//        //Loading
+//
+//    }else if(input_pattern_array[0] == 2){
+//        //Angry
+//        for(int k = 0; k < outputsize_x; k++ ){
+//            outputRED[0][k] = 0.5;
+//            outputRED2[0][k] = 0.5;
+//        }
+//    }else if(input_pattern_array[0] == 3){
+//        //Happy
+//
+//    }else if(input_pattern_array[0] == 4){
+//        //Dont understand
+//
+//    }else if (input_pattern_array[0] == 5){
+//        //bored
+//
+//    }else if(input_pattern_array[0] == 6){
+//        //Sad
+//
+//    }
+//    
+//    if(input_pattern_array[0] != 4){
+////        errorTick = 0;
+//    }
+//    
+//    if(input_pattern_array[0] != 4 && input_pattern_array[0] != 1){
+//        for(int k = 0; k < outputsize_x; k++ ){
+//            for(int k = 0; k < outputsize_x; k++ ){
+//                for(int f = 0; f < outputsize_y; f++ ){
+//                    output[f][k] = 0;
+//                }
+//            }
+//        }
+//    }
     
 }
 

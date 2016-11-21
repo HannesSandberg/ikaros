@@ -111,11 +111,11 @@ HeadMovementModule::Tick()
 //        if(output[0][0] > 160){
 //            output[0][0] = output[0][0] - 2;
 //        }
+        output[0][2] = output[0][2] + MoveTo(output[0][2], 200, 1-GetTimeDiff());
+        output[0][3] = output[0][3] + MoveTo(output[0][3], 200, 1-GetTimeDiff());
         output[0][0] = 180;
         output[0][1] = 180;
-        output[0][2] = 180;
-        output[0][3] = 180;
-
+       
        
     }else if(input_pattern_array[0] == 2){
         //Angry
@@ -178,18 +178,26 @@ HeadMovementModule::Tick()
             running = true;
         }
         
-        if(GetTimeDiff()<0.5){
-            output[0][0]= 210;
-            output[0][1]= 210;
-        }else if(GetTimeDiff()>0.5 && GetTimeDiff()<1){
-            output[0][0]= 150;
-            output[0][1]= 210;
-        }else if(GetTimeDiff()>1 && GetTimeDiff()<1.5){
-            output[0][0]= 150;
-            output[0][1]= 150;
-        }else if(GetTimeDiff()>1.5 &&GetTimeDiff()<2){
-            output[0][0]= 210;
-            output[0][1]= 150;
+        if(GetTimeDiff()<1){
+            output[0][0] = output[0][0] + MoveTo(output[0][0], 210, GetTimeDiff());
+            //output[0][1] = output[0][1] + MoveTo(output[0][1], 210, GetTimeDiff());
+            //output[0][0]= 210;
+          //  output[0][1]= 210;
+        }else if(GetTimeDiff()>1 && GetTimeDiff()<2){
+            output[0][0] = output[0][0] + MoveTo(output[0][0], 150, 1-GetTimeDiff());
+            //output[0][0]= 150;
+           // output[0][1]= 210;
+        }else if(GetTimeDiff()>2 && GetTimeDiff()<3){
+            output[0][0] = output[0][0] + MoveTo(output[0][0], 150,2 - GetTimeDiff());
+            //printf("%.6f",MoveTo(output[0][0], 150,2 - GetTimeDiff());
+            //output[0][1] = output[0][1] + MoveTo(output[0][1], 150,2 - GetTimeDiff());
+            //output[0][0]= 150;
+            //output[0][1]= 150;
+        }else if(GetTimeDiff()>3 &&GetTimeDiff()<4){
+            output[0][0] = output[0][0] + MoveTo(output[0][0], 210,3 - GetTimeDiff());
+
+           // output[0][0]= 210;
+            //output[0][1]= 150;
         
         }else{
             InitStartTime();

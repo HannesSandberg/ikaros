@@ -179,7 +179,7 @@ HeadMovementModule::Tick()
         }
         
         if(GetTimeDiff()<1){
-            output[0][0] = output[0][0] + MoveTo(output[0][0], 210, GetTimeDiff());
+            output[0][0] = output[0][0] + MoveTo(output[0][0], 210,1- GetTimeDiff());
             //output[0][1] = output[0][1] + MoveTo(output[0][1], 210, GetTimeDiff());
             //output[0][0]= 210;
           //  output[0][1]= 210;

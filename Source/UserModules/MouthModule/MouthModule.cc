@@ -82,7 +82,7 @@ MouthModule::Init()
     outputRED2       =	GetOutputMatrix("OUTPUTRED2");
     outputGREEN2     =	GetOutputMatrix("OUTPUTGREEN2");
     outputBLUE2      =	GetOutputMatrix("OUTPUTBLUE2");
-    
+    i = 0;
     Bind(data, outputsize_x, outputsize_y, "data");
     
 //    input_color_array = GetInputArray("INPUTCOLOR");
@@ -117,15 +117,30 @@ MouthModule::Tick()
 //        }
 //    }else if(input_pattern_array[0] == 1){
 //        //Loading
+        outputBLUE2[0][i-2] = outputBLUE2[0][i]-0.5;
+        outputBLUE[0][i-2] = outputBLUE[0][i]-0.5;
+        outputBLUE2[0][i-1] = outputBLUE2[0][i]-0.5;
+        outputBLUE[0][i-1] = outputBLUE[0][i]-0.5;
+        outputBLUE2[0][i] = outputBLUE2[0][i]+0.5;
+        outputBLUE[0][i] = outputBLUE[0][i]+0.5;
+        outputBLUE2[0][i+1] = outputBLUE2[0][i+1]+0.5;
+        outputBLUE[0][i+1] = outputBLUE[0][i+1]+0.5;
 //
 //    }else if(input_pattern_array[0] == 2){
 //        //Angry
-//        for(int k = 0; k < outputsize_x; k++ ){
-//            outputRED[0][k] = 0.5;
-//            outputRED2[0][k] = 0.5;
-//        }
+    //        outputBLUE2[0][1] = 1;
+    outputRED2[0][1] = 1;
+    outputRED2[0][6] = 1;
+    for(int a = 1; a<6; a++){
+        outputRED[0][a] = 1;
+    }
 //    }else if(input_pattern_array[0] == 3){
 //        //Happy
+        outputGREEN[0][1] = 1;
+        outputGREEN[0][6] = 1;
+    for(int a = 1; a<6; a++){
+        outputGREEN2[0][a] = 1;
+    }
 //
 //    }else if(input_pattern_array[0] == 4){
 //        //Dont understand
@@ -135,6 +150,11 @@ MouthModule::Tick()
 //
 //    }else if(input_pattern_array[0] == 6){
 //        //Sad
+    outputBLUE2[0][1] = 1;
+    outputBLUE2[0][6] = 1;
+    for(int a = 1; a<6; a++){
+        outputBLUE[0][a] = 1;
+    }
 //
 //    }
 //    

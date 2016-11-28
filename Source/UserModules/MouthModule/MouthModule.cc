@@ -183,7 +183,15 @@ MouthModule::Tick()
         outputGREEN2[0][a] = 1;
     }
 //
-//    }else if(input_pattern_array[0] == 4){
+    }else if(input_pattern_array[0] == 4){
+        for(int k = 1; k < 7; k++){
+        outputRED[0][k] = ikaros::random(0, 1);
+        outputRED2[0][k] = ikaros::random(0, 1);
+        outputBLUE[0][k] = ikaros::random(0, 1);
+        outputBLUE2[0][k] = ikaros::random(0, 1);
+        outputGREEN[0][k] = ikaros::random(0, 1);
+        outputGREEN2[0][k] = ikaros::random(0, 1);
+        }
 //        //Dont understand
 //
 //    }else if (input_pattern_array[0] == 5){

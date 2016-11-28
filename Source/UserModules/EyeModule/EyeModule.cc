@@ -228,7 +228,7 @@ EyeModule::Tick()
 //        blinkTick = 0;
 //        random = ikaros::random(0.8, 1.2);
 //    }
-    if(blinkTime - timer->GetTime() >= 3529 * random){
+    if(timer->GetTime() - blinkTime >= 3529 * random){
         blinkTick = 0;
         blinkTime = timer->GetTime();
         random = ikaros::random(0.8, 1.2);

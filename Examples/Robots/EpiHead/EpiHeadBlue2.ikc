@@ -205,13 +205,13 @@
         
         <connection sourcemodule = "DecisionModule" source = "OUTPUT" targetmodule = "MouthModule" target = "INPUTPATTERN" />
         
-    	<connection sourcemodule = "MouthModule" source = "OUTPUTRED" targetmodule = "FadeCandy" target = "MOUTH_TOP_RED" />
-    	<connection sourcemodule = "MouthModule" source = "OUTPUTGREEN" targetmodule = "FadeCandy" target = "MOUTH_TOP_GREEN" />
-    	<connection sourcemodule = "MouthModule" source = "OUTPUTBLUE" targetmodule = "FadeCandy" target = "MOUTH_TOP_BLUE" />
+    	<connection sourcemodule = "MouthModule" source = "OUTPUTRED2" targetmodule = "FadeCandy" target = "MOUTH_TOP_RED" />
+    	<connection sourcemodule = "MouthModule" source = "OUTPUTGREEN2" targetmodule = "FadeCandy" target = "MOUTH_TOP_GREEN" />
+    	<connection sourcemodule = "MouthModule" source = "OUTPUTBLUE2" targetmodule = "FadeCandy" target = "MOUTH_TOP_BLUE" />
             
-    	<connection sourcemodule = "MouthModule" source = "OUTPUTRED2" targetmodule = "FadeCandy" target = "MOUTH_BOTTOM_RED" />
-    	<connection sourcemodule = "MouthModule" source = "OUTPUTGREEN2" targetmodule = "FadeCandy" target = "MOUTH_BOTTOM_GREEN" />
-   		<connection sourcemodule = "MouthModule" source = "OUTPUTBLUE2" targetmodule = "FadeCandy" target = "MOUTH_BOTTOM_BLUE" />
+    	<connection sourcemodule = "MouthModule" source = "OUTPUTRED" targetmodule = "FadeCandy" target = "MOUTH_BOTTOM_RED" />
+    	<connection sourcemodule = "MouthModule" source = "OUTPUTGREEN" targetmodule = "FadeCandy" target = "MOUTH_BOTTOM_GREEN" />
+   		<connection sourcemodule = "MouthModule" source = "OUTPUTBLUE" targetmodule = "FadeCandy" target = "MOUTH_BOTTOM_BLUE" />
 
 
 

@@ -82,7 +82,8 @@ MouthModule::Init()
     outputRED2       =	GetOutputMatrix("OUTPUTRED2");
     outputGREEN2     =	GetOutputMatrix("OUTPUTGREEN2");
     outputBLUE2      =	GetOutputMatrix("OUTPUTBLUE2");
-    i = 0;
+    i = 1;
+    j = 0;
     Bind(data, outputsize_x, outputsize_y, "data");
     
 //    input_color_array = GetInputArray("INPUTCOLOR");
@@ -97,48 +98,88 @@ MouthModule::Init()
 void
 MouthModule::Tick()
 {
-    for(int k = 0; k < outputsize_x; k++ ){
-        outputRED[0][k] = 0;
-        outputGREEN[0][k] = 1;
-        outputBLUE[0][k] = 1;
-        outputRED2[0][k] = 0;
-        outputGREEN2[0][k] = 1;
-        outputBLUE2[0][k] = 1;
-    }
-//    if(input_pattern_array[0] == 0){
-//        //Standard
-//        for(int k = 0; k < outputsize_x; k++ ){
-//            outputRED[0][k] = 0.5;
-//            outputGREEN[0][k] = 0.5;
-//            outputBLUE[0][k] = 0.5;
-//            outputRED2[0][k] = 0.5;
-//            outputGREEN2[0][k] = 0.5;
-//            outputBLUE2[0][k] = 0.5;
+//    for(int k = 0; k < outputsize_x; k++ ){
+//        outputRED[0][k] = 0;
+//        outputGREEN[0][k] = 0;
+//        outputBLUE[0][k] = 0;
+//        outputRED2[0][k] = 0;
+//        outputGREEN2[0][k] = 0;
+//        outputBLUE2[0][k] = 0;
+//    }
+    if(input_pattern_array[0] == 0){
+        //Standard
+            for(int k = 0; k < outputsize_x; k++ ){
+                outputRED[0][k] = 0;
+                outputGREEN[0][k] = 0;
+                outputBLUE[0][k] = 0;
+                outputRED2[0][k] = 0;
+                outputGREEN2[0][k] = 0;
+                outputBLUE2[0][k] = 0;
+            }
+//        for(int k = 3; k < 5; k++ ){
+////            outputRED[0][k] = 1;
+////            outputGREEN[0][k] = 0;
+////            outputBLUE[0][k] = 0;
+//            outputRED2[0][k] = 1;
+//            outputGREEN2[0][k] = 1;
+//            outputBLUE2[0][k] = 0;
 //        }
-//    }else if(input_pattern_array[0] == 1){
+//        outputRED2[0][1] = 0.5;
+//        outputGREEN2[0][1] = 0.5;
+//        outputRED2[0][6] = 0.5;
+//        outputGREEN2[0][6] = 0.5;
+//        outputRED2[0][2] = 0.75;
+//        outputGREEN2[0][2] = 0.75;
+//        outputRED2[0][5] = 0.75;
+//        outputGREEN2[0][5] = 0.75;
+
+    
+    }else if(input_pattern_array[0] == 1){
 //        //Loading
-        outputBLUE2[0][i-2] = outputBLUE2[0][i]-0.5;
-        outputBLUE[0][i-2] = outputBLUE[0][i]-0.5;
-        outputBLUE2[0][i-1] = outputBLUE2[0][i]-0.5;
-        outputBLUE[0][i-1] = outputBLUE[0][i]-0.5;
-        outputBLUE2[0][i] = outputBLUE2[0][i]+0.5;
-        outputBLUE[0][i] = outputBLUE[0][i]+0.5;
-        outputBLUE2[0][i+1] = outputBLUE2[0][i+1]+0.5;
-        outputBLUE[0][i+1] = outputBLUE[0][i+1]+0.5;
+//        outputBLUE2[0][i-2] = outputBLUE2[0][i]-0.5;
+//        outputBLUE[0][i-2] = outputBLUE[0][i]-0.5;
+//        outputBLUE2[0][i-1] = outputBLUE2[0][i]-0.5;
+//        outputBLUE[0][i-1] = outputBLUE[0][i]-0.5;
+//        outputBLUE2[0][i] = outputBLUE2[0][i]+0.5;
+//        outputBLUE[0][i] = outputBLUE[0][i]+0.5;
+//        outputBLUE2[0][i+1] = outputBLUE2[0][i+1]+0.5;
+//        outputBLUE[0][i+1] = outputBLUE[0][i+1]+0.5;
+        if (i>8){i=0;}
+        if (j>8){j=0;}
+        if(outputBLUE[0][i]<1){
+            outputBLUE[0][i] = prev_output[0][i] + 0.5;
+            outputBLUE[0][j] = prev_output[0][j] - 0.5;
+            outputBLUE2[0][i] = prev_output[0][i] + 0.5;
+            outputBLUE2[0][j] = prev_output[0][j] - 0.5;
+            prev_output[0][i] = outputBLUE[0][i];
+            //            outputBLUE[0][i] = output[0][i];
+        }else{
+            i++;
+            j++;
+        }
+//        for(int k = 0; k < outputsize_x; k++ ){
+//            for(int k = 0; k < outputsize_x; k++ ){
+//                for(int f = 0; f < outputsize_y; f++ ){
+//                    outputBLUE[f][k] = output[f][k];
+//                    outputGREEN[f][k] = 0;
+//                    outputRED[f][k] = 0;
+//                }
+//            }
+//        }
 //
-//    }else if(input_pattern_array[0] == 2){
+    }else if(input_pattern_array[0] == 2){
 //        //Angry
     //        outputBLUE2[0][1] = 1;
     outputRED2[0][1] = 1;
     outputRED2[0][6] = 1;
-    for(int a = 1; a<6; a++){
+    for(int a = 1; a<7; a++){
         outputRED[0][a] = 1;
     }
-//    }else if(input_pattern_array[0] == 3){
+    }else if(input_pattern_array[0] == 3){
 //        //Happy
         outputGREEN[0][1] = 1;
         outputGREEN[0][6] = 1;
-    for(int a = 1; a<6; a++){
+    for(int a = 2; a<6; a++){
         outputGREEN2[0][a] = 1;
     }
 //
@@ -148,16 +189,16 @@ MouthModule::Tick()
 //    }else if (input_pattern_array[0] == 5){
 //        //bored
 //
-//    }else if(input_pattern_array[0] == 6){
+    }else if(input_pattern_array[0] == 6){
 //        //Sad
     outputBLUE2[0][1] = 1;
     outputBLUE2[0][6] = 1;
-    for(int a = 1; a<6; a++){
+    for(int a = 2; a<6; a++){
         outputBLUE[0][a] = 1;
     }
 //
-//    }
-//    
+    }
+    
 //    if(input_pattern_array[0] != 4){
 ////        errorTick = 0;
 //    }
@@ -171,7 +212,8 @@ MouthModule::Tick()
 //            }
 //        }
 //    }
-    
+    i++;
+    j++;
 }
 
 

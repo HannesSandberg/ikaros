@@ -184,17 +184,17 @@ HeadMovementModule::Tick()
             //output[0][0]= 210;
           //  output[0][1]= 210;
         }else if(GetTimeDiff()>1 && GetTimeDiff()<2){
-            output[0][0] = output[0][0] + MoveTo(output[0][0], 150, 1-GetTimeDiff());
+            output[0][0] = output[0][0] + MoveTo(output[0][0], 150, 2-GetTimeDiff());
             //output[0][0]= 150;
            // output[0][1]= 210;
         }else if(GetTimeDiff()>2 && GetTimeDiff()<3){
-            output[0][0] = output[0][0] + MoveTo(output[0][0], 150,2 - GetTimeDiff());
+            output[0][0] = output[0][0] + MoveTo(output[0][0], 150,3 - GetTimeDiff());
             //printf("%.6f",MoveTo(output[0][0], 150,2 - GetTimeDiff());
             //output[0][1] = output[0][1] + MoveTo(output[0][1], 150,2 - GetTimeDiff());
             //output[0][0]= 150;
             //output[0][1]= 150;
         }else if(GetTimeDiff()>3 &&GetTimeDiff()<4){
-            output[0][0] = output[0][0] + MoveTo(output[0][0], 210,3 - GetTimeDiff());
+            output[0][0] = output[0][0] + MoveTo(output[0][0], 210,4 - GetTimeDiff());
 
            // output[0][0]= 210;
             //output[0][1]= 150;

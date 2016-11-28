@@ -170,17 +170,25 @@ MouthModule::Tick()
     }else if(input_pattern_array[0] == 2){
 //        //Angry
     //        outputBLUE2[0][1] = 1;
-    outputRED2[0][1] = 1;
-    outputRED2[0][6] = 1;
-    for(int a = 1; a<7; a++){
-        outputRED[0][a] = 1;
-    }
+        
+        outputRED[0][2] = 0.5;
+        outputRED[0][5] = 0.5;
+        outputRED[0][3] = 1;
+        outputRED[0][4] = 1;
+        
+        outputRED2[0][2] = 0.5;
+        outputRED2[0][5] = 0.5;
+        outputRED2[0][3] = 1;
+        outputRED2[0][4] = 1;
+//    for(int a = 1; a<7; a++){
+//        outputRED[0][a] = 1;
+//    }
     }else if(input_pattern_array[0] == 3){
 //        //Happy
-        outputGREEN[0][1] = 1;
-        outputGREEN[0][6] = 1;
+        outputGREEN[0][1] = 0.7;
+        outputGREEN[0][6] = 0.7;
     for(int a = 2; a<6; a++){
-        outputGREEN2[0][a] = 1;
+        outputGREEN2[0][a] = 0.7;
     }
 //
 //    }else if(input_pattern_array[0] == 4){

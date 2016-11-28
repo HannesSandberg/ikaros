@@ -97,24 +97,34 @@ MouthModule::Init()
 void
 MouthModule::Tick()
 {
-    for(int k = 0; k < outputsize_x; k++ ){
-        outputRED[0][k] = 0;
-        outputGREEN[0][k] = 1;
-        outputBLUE[0][k] = 1;
-        outputRED2[0][k] = 0;
-        outputGREEN2[0][k] = 1;
-        outputBLUE2[0][k] = 1;
+//    for(int k = 0; k < outputsize_x; k++ ){
+//        outputRED[0][k] = 0;
+//        outputGREEN[0][k] = 0;
+//        outputBLUE[0][k] = 0;
+//        outputRED2[0][k] = 0;
+//        outputGREEN2[0][k] = 0;
+//        outputBLUE2[0][k] = 0;
+//    }
+    if(input_pattern_array[0] == 0){
+        //Standard
+        for(int k = 3; k < 5; k++ ){
+//            outputRED[0][k] = 1;
+//            outputGREEN[0][k] = 0;
+//            outputBLUE[0][k] = 0;
+            outputRED2[0][k] = 1;
+            outputGREEN2[0][k] = 1;
+            outputBLUE2[0][k] = 0;
+        }
+        outputRED2[0][1] = 0.5;
+        outputGREEN2[0][1] = 0.5;
+        outputRED2[0][6] = 0.5;
+        outputGREEN2[0][6] = 0.5;
+        outputRED2[0][2] = 0.75;
+        outputGREEN2[0][2] = 0.75;
+        outputRED2[0][5] = 0.75;
+        outputGREEN2[0][5] = 0.75;
+
     }
-//    if(input_pattern_array[0] == 0){
-//        //Standard
-//        for(int k = 0; k < outputsize_x; k++ ){
-//            outputRED[0][k] = 0.5;
-//            outputGREEN[0][k] = 0.5;
-//            outputBLUE[0][k] = 0.5;
-//            outputRED2[0][k] = 0.5;
-//            outputGREEN2[0][k] = 0.5;
-//            outputBLUE2[0][k] = 0.5;
-//        }
 //    }else if(input_pattern_array[0] == 1){
 //        //Loading
 //
@@ -137,7 +147,7 @@ MouthModule::Tick()
 //        //Sad
 //
 //    }
-//    
+    
 //    if(input_pattern_array[0] != 4){
 ////        errorTick = 0;
 //    }

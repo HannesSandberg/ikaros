@@ -119,8 +119,8 @@ PupilModule::Tick()
         output[0][1] = 190;
         
     }else if(input_pattern_array[0] == 4){
-        output[0][0] = 190;
-        output[0][1] = 220;
+        output[0][0] = ikaros::random(190,220);
+        output[0][1] = ikaros::random(190,220);
     }else if(input_pattern_array[0] == 5){
         output[0][0] = 220;
         output[0][1] = 220;

@@ -148,51 +148,57 @@ EyeModule::Tick()
         }
     }else if(input_pattern_array[0] == 4){
         //Dont understand
-        if(errorTick < 40){
-            if (i>11){i=0;}
-            if (j>11){j=0;}
-            if(output[0][i]<1){
-                output[0][i] = prev_output[0][i] + 0.25;
-                output[0][j] = prev_output[0][j] - 0.25;
-                prev_output[0][i] = output[0][i];
-                //            outputBLUE[0][i] = output[0][i];
-            }else{
-                i++;
-                j++;
-            }
-            for(int k = 0; k < outputsize_x; k++ ){
-                for(int k = 0; k < outputsize_x; k++ ){
-                    for(int f = 0; f < outputsize_y; f++ ){
-                        outputBLUE[f][k] = output[f][k];
-                        outputGREEN[f][k] = 0;
-                        outputRED[f][k] = 0;
-                    }
-                }
-            }
-        }else{
-            for(int k = 0; k < outputsize_x; k++ ){
-                outputRED[0][k] = 0.5;
-                outputGREEN[0][k] = 0.5;
-                outputBLUE[0][k] = 0.5;
-            }
-            for(int k = 0; k < outputsize_x; k++ ){
-                for(int k = 0; k < outputsize_x; k++ ){
-                    for(int f = 0; f < outputsize_y; f++ ){
-                        output[f][k] = 0;
-                    }
-                }
-            }
+        for(int k = 0; k < outputsize_x; k++ ){
+            outputRED[0][k] = ikaros::random(0, 1);
+            outputGREEN[0][k] = ikaros::random(0, 1);
+            outputBLUE[0][k] = ikaros::random(0, 1);
         }
-        if(errorTick == 50 || errorTick == 51 || errorTick == 52 || errorTick == 70 || errorTick == 71 || errorTick == 72|| errorTick == 90 || errorTick == 91 || errorTick == 92){
-            for(int k = 0; k < outputsize_x; k++ ){
-                outputRED[0][k] = 1;
-                outputGREEN[0][k] = 0;
-                outputBLUE[0][k] = 0;
-            }
-        }
-//        blinkTick = 4;
-        blinkTime = timer->GetTime();
-        errorTick++;
+
+//        if(errorTick < 40){
+//            if (i>11){i=0;}
+//            if (j>11){j=0;}
+//            if(output[0][i]<1){
+//                output[0][i] = prev_output[0][i] + 0.25;
+//                output[0][j] = prev_output[0][j] - 0.25;
+//                prev_output[0][i] = output[0][i];
+//                //            outputBLUE[0][i] = output[0][i];
+//            }else{
+//                i++;
+//                j++;
+//            }
+//            for(int k = 0; k < outputsize_x; k++ ){
+//                for(int k = 0; k < outputsize_x; k++ ){
+//                    for(int f = 0; f < outputsize_y; f++ ){
+//                        outputBLUE[f][k] = output[f][k];
+//                        outputGREEN[f][k] = 0;
+//                        outputRED[f][k] = 0;
+//                    }
+//                }
+//            }
+//        }else{
+//            for(int k = 0; k < outputsize_x; k++ ){
+//                outputRED[0][k] = 0.5;
+//                outputGREEN[0][k] = 0.5;
+//                outputBLUE[0][k] = 0.5;
+//            }
+//            for(int k = 0; k < outputsize_x; k++ ){
+//                for(int k = 0; k < outputsize_x; k++ ){
+//                    for(int f = 0; f < outputsize_y; f++ ){
+//                        output[f][k] = 0;
+//                    }
+//                }
+//            }
+//        }
+//        if(errorTick == 50 || errorTick == 51 || errorTick == 52 || errorTick == 70 || errorTick == 71 || errorTick == 72|| errorTick == 90 || errorTick == 91 || errorTick == 92){
+//            for(int k = 0; k < outputsize_x; k++ ){
+//                outputRED[0][k] = 1;
+//                outputGREEN[0][k] = 0;
+//                outputBLUE[0][k] = 0;
+//            }
+//        }
+////        blinkTick = 4;
+//        blinkTime = timer->GetTime();
+//        errorTick++;
     }else if (input_pattern_array[0] == 5){
         //bored
         for(int k = 0; k < outputsize_x; k++ ){

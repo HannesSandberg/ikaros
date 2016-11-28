@@ -194,9 +194,16 @@ MouthModule::Tick()
 //    }else if(input_pattern_array[0] == 4){
 //        //Dont understand
 //
-//    }else if (input_pattern_array[0] == 5){
-//        //bored
-//
+    }else if (input_pattern_array[0] == 5){
+        //bored
+        outputRED[0][2] = 1;
+        outputRED[0][4] = 1;
+        outputRED[0][6] = 1;
+        
+        outputRED2[0][1] = 1;
+        outputRED2[0][3] = 1;
+        outputRED2[0][5] = 1;
+
     }else if(input_pattern_array[0] == 6){
 //        //Sad
     outputBLUE2[0][1] = 1;

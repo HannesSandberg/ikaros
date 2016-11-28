@@ -201,10 +201,15 @@ EyeModule::Tick()
 //        errorTick++;
     }else if (input_pattern_array[0] == 5){
         //bored
+//        for(int k = 0; k < outputsize_x; k++ ){
+//            outputRED[0][k] = 0.25;
+//            outputGREEN[0][k] = 0.25;
+//            outputBLUE[0][k] = 0.25;
+//        }
         for(int k = 0; k < outputsize_x; k++ ){
-            outputRED[0][k] = 0.25;
-            outputGREEN[0][k] = 0.25;
-            outputBLUE[0][k] = 0.25;
+            outputRED[0][k] = ikaros::random(0, 1);
+            outputGREEN[0][k] = ikaros::random(0, 1);
+            outputBLUE[0][k] = ikaros::random(0, 1);
         }
     }else if(input_pattern_array[0] == 6){
         //Sad

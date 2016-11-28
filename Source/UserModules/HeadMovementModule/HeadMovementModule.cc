@@ -177,29 +177,42 @@ HeadMovementModule::Tick()
             InitStartTime();
             running = true;
         }
-        
         if(GetTimeDiff()<1){
-            output[0][0] = output[0][0] + MoveTo(output[0][0], 210,1- GetTimeDiff());
-            //output[0][1] = output[0][1] + MoveTo(output[0][1], 210, GetTimeDiff());
-            //output[0][0]= 210;
-          //  output[0][1]= 210;
-        }else if(GetTimeDiff()>1 && GetTimeDiff()<2){
-            output[0][0] = output[0][0] + MoveTo(output[0][0], 150, 2-GetTimeDiff());
-            //output[0][0]= 150;
-           // output[0][1]= 210;
-        }else if(GetTimeDiff()>2 && GetTimeDiff()<3){
-            output[0][0] = output[0][0] + MoveTo(output[0][0], 150,3 - GetTimeDiff());
-            //printf("%.6f",MoveTo(output[0][0], 150,2 - GetTimeDiff());
-            //output[0][1] = output[0][1] + MoveTo(output[0][1], 150,2 - GetTimeDiff());
-            //output[0][0]= 150;
-            //output[0][1]= 150;
-        }else if(GetTimeDiff()>3 &&GetTimeDiff()<4){
-            output[0][0] = output[0][0] + MoveTo(output[0][0], 210,4 - GetTimeDiff());
-
+//        output[0][3] = output[0][3] + MoveTo(output[0][3], 210,1   - GetTimeDiff());
+//        output[0][4] = output[0][4] + MoveTo(output[0][4], 140,1   - GetTimeDiff());
+            output[0][3]= 200;
+            output[0][2]= 160;
+           
+        }else if(GetTimeDiff()<2){
+//            output[0][3] = output[0][3] + MoveTo(output[0][3], 140,1   - GetTimeDiff());
+//            output[0][4] = output[0][4] + MoveTo(output[0][4], 210,1   - GetTimeDiff());
+            output[0][3]= 160;
+            output[0][2]= 200;
+            
+            
+        }
+//        if(GetTimeDiff()<1){
+//            output[0][0] = output[0][0] + MoveTo(output[0][0], 210,1- GetTimeDiff());
+//            //output[0][1] = output[0][1] + MoveTo(output[0][1], 210, GetTimeDiff());
+//            //output[0][0]= 210;
+//          //  output[0][1]= 210;
+//        }else if(GetTimeDiff()>1 && GetTimeDiff()<2){
+//            output[0][0] = output[0][0] + MoveTo(output[0][0], 150, 2-GetTimeDiff());
+//            //output[0][0]= 150;
+//           // output[0][1]= 210;
+//        }else if(GetTimeDiff()>2 && GetTimeDiff()<3){
+//            output[0][0] = output[0][0] + MoveTo(output[0][0], 150,3 - GetTimeDiff());
+//            //printf("%.6f",MoveTo(output[0][0], 150,2 - GetTimeDiff());
+//            //output[0][1] = output[0][1] + MoveTo(output[0][1], 150,2 - GetTimeDiff());
+//            //output[0][0]= 150;
+//            //output[0][1]= 150;
+//        }else if(GetTimeDiff()>3 &&GetTimeDiff()<4){
+//            output[0][0] = output[0][0] + MoveTo(output[0][0], 210,4 - GetTimeDiff());
+//
            // output[0][0]= 210;
             //output[0][1]= 150;
         
-        }else{
+        else{
             InitStartTime();
             
 //            output[0][1]= 180;

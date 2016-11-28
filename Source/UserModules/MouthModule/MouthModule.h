@@ -42,6 +42,7 @@ public:
     int         outputsize_x;
     int         outputsize_y;
     int         i;
+    int         j;
     bool        blinkOn;
 
 //    float *     input_color_array;

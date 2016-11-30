@@ -142,9 +142,9 @@ EyeModule::Tick()
     }else if(input_pattern_array[0] == 3){
         //Happy
         for(int k = 0; k < outputsize_x; k++ ){
-            outputRED[0][k] = 0;
+            outputRED[0][k] = 0.7;
             outputGREEN[0][k] = 0.5;
-            outputBLUE[0][k] = 0;
+            outputBLUE[0][k] = 0.2;
         }
     }else if(input_pattern_array[0] == 4){
         //Dont understand

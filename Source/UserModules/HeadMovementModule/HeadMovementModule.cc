@@ -249,6 +249,32 @@ HeadMovementModule::Tick()
 //    j++;
     }else if(input_pattern_array[0] == 5){
         //bored
+        output[0][3]= 190;
+        output[0][2]= 170;
+        //Don't understand / wrong imput
+        if(!running){
+            InitStartTime();
+            running = true;
+        }
+        if(GetTimeDiff()<1){
+            //        output[0][3] = output[0][3] + MoveTo(output[0][3], 210,1   - GetTimeDiff());
+            //        output[0][4] = output[0][4] + MoveTo(output[0][4], 140,1   - GetTimeDiff());
+            output[0][3]= 200;
+            output[0][2]= 160;
+            
+        }else if(GetTimeDiff()<2){
+            //            output[0][3] = output[0][3] + MoveTo(output[0][3], 140,1   - GetTimeDiff());
+            //            output[0][4] = output[0][4] + MoveTo(output[0][4], 210,1   - GetTimeDiff());
+            output[0][3]= 160;
+            output[0][2]= 200;
+            
+            
+        }else{
+            InitStartTime();
+            
+            //            output[0][1]= 180;
+        }
+
 //        if(j<15){
 //            output[0][2] = output[0][2] +4;
 //            output[0][3] = output[0][3] +4;

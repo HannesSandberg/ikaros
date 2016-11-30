@@ -35,6 +35,7 @@ using namespace ikaros;
 using namespace std;
 
 int  inputFromTerminal = 0;
+int  nextProgram = 0;
 void
 DecisionModule::SetSizes() // Infer output size from data if none is given
 {
@@ -143,11 +144,18 @@ DecisionModule::Tick()
         if(id == 0){
             output[0][0] = 0;
             startingTime = 0;
+            inputFromTerminal = 0;
         }
     }
     
     if(inputFromTerminal != 0){
-        output[0][0] = inputFromTerminal;
+        if(nextProgram == 0){
+            nextProgram = inputFromTerminal;
+            output[0][0] = 0;
+        }else{
+            output[0][0] = nextProgram;
+//            nextProgram = 0;
+        }
     }else{
         output[0][0] = 0;
         startingTime = 0;
@@ -163,8 +171,9 @@ void
     while(true){
         cout << "Please enter an integer value for different mental states, 1: Thinking, 2: Angry, 3: Happy, 4: Confused 5: Indiferent, 6: Sad : ";
         cin >> inputFromTerminal;
-        sleep(10);
-        inputFromTerminal = 0;
+        nextProgram = 0;
+//        sleep(10);
+//        inputFromTerminal = 0;
     }
 //    pthread_exit(NULL);
 }

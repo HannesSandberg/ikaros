@@ -97,12 +97,20 @@ HeadMovementModule::Tick()
     
     if(input_pattern_array[0] == 0){
         //Nothing (standard white eyes
-        output[0][0] = 180;
-        output[0][1] = 180;
-        output[0][2] = 180;
-        output[0][3] = 180;
+        
+        if(!running){
+            InitStartTime();
+            running = true;
+        }
+        
+        if(GetTimeDiff()>1){
         running = false;
-        InitStartTime();
+        }else{
+            output[0][2] = output[0][2] + MoveTo(output[0][2], 180, 1-GetTimeDiff());
+            output[0][3] = output[0][3] + MoveTo(output[0][3], 180, 1-GetTimeDiff());
+            output[0][0] = output[0][0] + MoveTo(output[0][0], 180, 1-GetTimeDiff());
+            output[0][1] = output[0][1] + MoveTo(output[0][1], 180, 1-GetTimeDiff());
+        }
         
     }else if(input_pattern_array[0] == 1){
         //Loading
@@ -111,10 +119,14 @@ HeadMovementModule::Tick()
 //        if(output[0][0] > 160){
 //            output[0][0] = output[0][0] - 2;
 //        }
+        if(!running){
+        running = true;
+            InitStartTime();
+        }
         output[0][2] = output[0][2] + MoveTo(output[0][2], 200, 1-GetTimeDiff());
         output[0][3] = output[0][3] + MoveTo(output[0][3], 200, 1-GetTimeDiff());
         output[0][0] = 180;
-        output[0][1] = 180;
+        output[0][1] = 160;
        
        
     }else if(input_pattern_array[0] == 2){

@@ -126,7 +126,7 @@ HeadMovementModule::Tick()
         output[0][2] = output[0][2] + MoveTo(output[0][2], 200, 1-GetTimeDiff());
         output[0][3] = output[0][3] + MoveTo(output[0][3], 200, 1-GetTimeDiff());
         output[0][1] = 180;
-        output[0][0] = 160;
+        output[0][0] = output[0][0] + MoveTo(output[0][0], 170, 1-GetTimeDiff());
        
        
     }else if(input_pattern_array[0] == 2){

@@ -36,6 +36,7 @@ using namespace std;
 
 int  inputFromTerminal = 0;
 int  nextProgram = 0;
+float       startingTime;
 void
 DecisionModule::SetSizes() // Infer output size from data if none is given
 {
@@ -80,7 +81,7 @@ DecisionModule::Init()
     input_marker_matrix_size_x = GetInputSizeX("INPUTMARKERS");
     input_marker_matrix_size_y = GetInputSizeY("INPUTMARKERS");
     output[0][0] = 0;
-    timer = new Timer();
+//    timer = new Timer();
     startingTime = 0;
     inputFromTerminal = 0;
 }
@@ -90,6 +91,7 @@ DecisionModule::Init()
 void
 DecisionModule::Tick()
 {
+    Timer  *timer = new Timer();
 //    pthread_t t;
     if(thread == NULL){
         int rc;
@@ -144,7 +146,7 @@ DecisionModule::Tick()
         if(id == 0){
             output[0][0] = 0;
             startingTime = 0;
-            inputFromTerminal = 0;
+//            inputFromTerminal = 0;
         }
     }
     
@@ -167,9 +169,11 @@ DecisionModule::Tick()
 void
 *DecisionModule::InputTerminal(void *)
 {
+    Timer  *timer = new Timer();
 //    int i;
     while(true){
         cout << "Please enter an integer value for different mental states, 1: Thinking, 2: Angry, 3: Happy, 4: Confused 5: Indiferent, 6: Sad : ";
+        startingTime = timer->GetTime();
         cin >> inputFromTerminal;
         nextProgram = 0;
 //        sleep(10);

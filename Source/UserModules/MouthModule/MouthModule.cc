@@ -82,7 +82,7 @@ MouthModule::Init()
     outputRED2       =	GetOutputMatrix("OUTPUTRED2");
     outputGREEN2     =	GetOutputMatrix("OUTPUTGREEN2");
     outputBLUE2      =	GetOutputMatrix("OUTPUTBLUE2");
-    i = 1;
+    i = 3;
     j = 0;
     Bind(data, outputsize_x, outputsize_y, "data");
     
@@ -115,7 +115,11 @@ MouthModule::Tick()
                 outputRED2[0][k] = 0;
                 outputGREEN2[0][k] = 0;
                 outputBLUE2[0][k] = 0;
+                prev_output[0][k] = 0;
             }
+
+        i = 3;
+        j = 0;
 //        for(int k = 3; k < 5; k++ ){
 ////            outputRED[0][k] = 1;
 ////            outputGREEN[0][k] = 0;
@@ -152,6 +156,7 @@ MouthModule::Tick()
             outputBLUE2[0][i] = prev_output[0][i] + 0.5;
             outputBLUE2[0][j] = prev_output[0][j] - 0.5;
             prev_output[0][i] = outputBLUE[0][i];
+            prev_output[0][j] = outputBLUE[0][j];
             //            outputBLUE[0][i] = output[0][i];
         }else{
             i++;
@@ -187,11 +192,11 @@ MouthModule::Tick()
 //        //Happy
         outputGREEN[0][1] = 1;
         outputGREEN[0][6] = 1;
-        outputRED[0][1] = 1;
-        outputRED[0][6] = 1;
+//        outputRED[0][1] = 1;
+//        outputRED[0][6] = 1;
     for(int a = 2; a<6; a++){
         outputGREEN2[0][a] = 1;
-        outputRED2[0][a] = 1;
+//        outputRED2[0][a] = 1;
     }
 //
     }else if(input_pattern_array[0] == 4){
@@ -238,8 +243,8 @@ MouthModule::Tick()
 //            }
 //        }
 //    }
-    i++;
-    j++;
+//    i++;
+//    j++;
 }
 
 

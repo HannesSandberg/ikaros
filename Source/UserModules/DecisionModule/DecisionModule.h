@@ -39,8 +39,6 @@ public:
     int         outputsize_x;
     int         outputsize_y;
     int         nextId;
-    Timer *timer;
-    float       startingTime;
     
     float **    input_marker_matrix;
     int         input_marker_matrix_size_x;
